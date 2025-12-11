@@ -12,7 +12,7 @@ class Question {
 
     public:
 
-    Question(string &titre,string &text);
+    Question(const string &titre,const string &text);
     virtual ~Question()=default;
     string get_titre()  const ;
     string get_text() const ;

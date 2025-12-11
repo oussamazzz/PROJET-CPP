@@ -5,7 +5,7 @@
 
 using namespace std;
 
-Question::Question(string &titre, string &text):d_titre{titre},d_text{text}{}
+Question::Question(const string &titre, const string &text):d_titre{titre},d_text{text}{}
 
 string Question::get_titre() const {
     return d_titre;
