@@ -1,5 +1,5 @@
 //
-// Created by oussa on 03/12/2025.
+// Created by moundir on 03/12/2025.
 //
 #ifndef PROJETQUESTION_QUESTIONTEXT_H
 #define PROJETQUESTION_QUESTIONTEXT_H
