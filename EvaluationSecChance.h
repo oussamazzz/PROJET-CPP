@@ -8,14 +8,10 @@
 #include "Questionnaire.h"
 #include "Evaluation.h"
 
-using namespace std;
-
-class EvaluationTest : public Evaluation {
+class EvaluationSecondeChance : public Evaluation {
 public:
-
-    EvaluationTest(Questionnaire& q);
+    EvaluationSecondeChance(Questionnaire& q);
     void lancer() override;
-    
 };
 
 

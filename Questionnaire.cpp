@@ -22,6 +22,6 @@ void Questionnaire::afficher() const {
     std::cout << "Questionnaire : " << titre << std::endl;
     for (size_t i = 0; i < questions.size(); ++i) {
         std::cout << i + 1 << ". ";
-        questions[i]->afficher();
+        questions[i]->afficherquestion();
     }
 }
