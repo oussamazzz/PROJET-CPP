@@ -7,17 +7,17 @@
 
 class Questionnaire {
 private:
-    std::string titre;
-    std::vector<Question*> questions;
+    std::string d_titre;
+    std::vector<std::unique_ptr<Question>> d_questions;
 
 public:
     Questionnaire(const std::string& t = "");
     ~Questionnaire();
 
-    void ajouterQuestion(Question* q);
-    const std::vector<Question*>& getQuestions() const;
+    void ajouterQuestion(const std::vector<std::unique_ptr<Question>> & q);
+    int taille() const;
+    const std::vector<unqiue_ptr<Question>> & getQuestions() const;
 
-    void afficher() const;
 };
 
 #endif
