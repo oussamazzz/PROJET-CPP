@@ -1,8 +1,8 @@
 //
 // Created by oussa on 03/12/2025.
 //
-#ifndef PROJETQUESTION_QUESTIONTEXT_H
-#define PROJETQUESTION_QUESTIONTEXT_H
+#ifndef PROJETQUESTION_QUESTIONQCM_H
+#define PROJETQUESTION_QUESTIONQCM_H
 
 #include "Question.h"
 #include <string>
@@ -25,6 +25,7 @@ class QuestionQCM : public Question {
     string BonneReponse() const override ;
     
     void sauvegarder(ofstream &fichiertxt) const override;
+    void afficherquestion() const override ;
 
 };
 
@@ -36,4 +37,4 @@ class QuestionQCM : public Question {
 
 
 
-#endif //PROJETQUESTION_QUESTIONTEXT_H
+#endif //PROJETQUESTION_QUESTIONQCM_H

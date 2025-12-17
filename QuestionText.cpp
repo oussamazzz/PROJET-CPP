@@ -22,3 +22,6 @@ void QuestionText::sauvegarder(ofstream &fichiertxt) const {
     fichiertxt << d_text << endl;
     fichiertxt << d_reponse << endl;
 }
+void QuestionText::afficherquestion() const {
+    Question::afficherquestion();
+}

@@ -1,8 +1,8 @@
 //
 // Created by oussa on 03/12/2025.
 //
-#ifndef PROJETQUESTION_QUESTIONTEXT_H
-#define PROJETQUESTION_QUESTIONTEXT_H
+#ifndef PROJETQUESTION_QUESTIONNUM_H
+#define PROJETQUESTION_QUESTIONNUM_H
 #include "Question.h"
 #include <string>
 #include <fstream>
@@ -14,10 +14,11 @@ QuestionNum(const std::string &titre, const std::string &text, int reponse, int 
 bool verificationreponse(const string &reponse) const override ;
     string BonneReponse() const override ;
     void sauvegarder(ofstream &fichiertxt) const override;
+    void afficherquestion() const override ;
 private :
     int  d_reponse;
     int d_limiteminimale  ;
     int d_limitemaximale ;
 };
 
-#endif //PROJETQUESTION_QUESTIONTEXT_H
+#endif //PROJETQUESTION_QUESTIONNUM_H

@@ -1,0 +1,13 @@
+.vscode/
+.idea/
+
+*.exe
+*.o
+*.obj
+*.pdb
+*.log
+
+*.tmp
+*.swp
+
+

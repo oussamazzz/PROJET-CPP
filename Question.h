@@ -19,7 +19,7 @@ class Question {
     virtual void sauvegarder(ofstream& fichiertxt)const =0 ;
     virtual bool verificationreponse(const string& reponse) const =0;
     virtual string BonneReponse() const =0;
-    virtual void afficherquestion() const  ;
+    virtual void afficherquestion() const   ;
 
 protected:
     string d_titre;

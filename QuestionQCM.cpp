@@ -19,3 +19,9 @@ void QuestionQCM::sauvegarder(ofstream &fichiertxt) const {
     }
     fichiertxt << d_bonnereponse << endl;
 }
+void QuestionQCM::afficherquestion() const {
+    Question::afficherquestion();
+    for (size_t i = 0; i < d_choix.size(); ++i) {
+        cout << i + 1 << ". " << d_choix[i] << endl;
+    }
+}

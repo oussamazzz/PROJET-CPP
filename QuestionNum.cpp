@@ -27,3 +27,7 @@ void QuestionNum::sauvegarder(ofstream &fichiertxt) const {
     fichiertxt << d_limiteminimale << endl;
     fichiertxt << d_limitemaximale << endl;
 }
+void QuestionNum::afficherquestion() const {
+   Question::afficherquestion();
+   cout <<"veuillez choisir un nombre entre " << d_limitemaximale << " et " <<  d_limiteminimale << "." << endl;
+}
