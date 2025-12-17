@@ -5,37 +5,41 @@
 #include <cstdlib>  // rand, srand
 #include <ctime>    // time
 
-using namespace std;
+
 
 EvaluationAdaptative::EvaluationAdaptative(Questionnaire& q)
     : Evaluation(q) {}
 
 void EvaluationAdaptative::lancer() {
-    if (d_questionnaire.taille() == 0) {
-        cout << "Aucune question dans le questionnaire.\n";
+    int total = get_NbQuestions();
+    if (total == 0) {
+        std::cout << "Aucune question dans le questionnaire.\n";
         return;
     }
 
-    const auto& qs = d_questionnaire.getQuestions(); 
-    int n = d_questionnaire.taille();
+    const auto& qs = d_questionnaire.getQuestions();
 
-    srand(time(0));
+    std::srand(std::time(0));
 
-
-    vector<int> indices(n);
-    for (int i = 0; i < n; ++i) {
+    std::vector<int> indices(total);
+    for (int i = 0; i < total; ++i) {
         indices[i] = i;
     }
 
-    for (int i = n - 1; i > 0; --i) {
-        int j = rand() % (i + 1);  
+    for (int i = total - 1; i > 0; --i) {
+        int j = std::rand() % (i + 1);
         std::swap(indices[i], indices[j]);
     }
 
-    vector<int> aReposer;
+    std::vector<int> aReposer;
+    int numQuestion = 0;
 
-    
     for (int idx : indices) {
+
+        ++numQuestion;
+        std::cout << "Question courante : " << numQuestion << " / " << total << "\n";
+        std::cout << "Il reste " << (total - numQuestion) << " question(s) après celle-ci.\n";
+
         ++d_essais;
         bool correct = poserQuestion(qs[idx], false);
         if (correct) {
@@ -47,11 +51,18 @@ void EvaluationAdaptative::lancer() {
 
 
     for (int idx : aReposer) {
-        cout << "Question reposée :\n";
+        std::cout << "Question reposée :\n";
         ++d_essais;
         bool correct = poserQuestion(qs[idx], true);
         if (correct) {
             ++d_bonnes;
         }
     }
+
+
+    std::cout << "\n----- Résultats -----\n";
+    std::cout << "Nombre de questions : " << total << "\n";
+    std::cout << "Nombre d'essais : " << d_essais << "\n";
+    std::cout << "Nombre de bonnes réponses : " << d_bonnes << "\n";
 }
+

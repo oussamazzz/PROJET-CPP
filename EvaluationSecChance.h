@@ -1,5 +1,5 @@
-#ifndef EVALUATIONTEST_H
-#define EVALUATIONTEST_H
+#ifndef EVALUATIONSECCHANCE_H
+#define EVALUATIONSECCHANCE_H
 #include <string>
 #include <fstream>  
 #include <iostream>

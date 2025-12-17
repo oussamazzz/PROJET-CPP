@@ -1,5 +1,5 @@
-#ifndef EVALUATION_ADAPTATIVE_H
-#define EVALUATION_ADAPTATIVE_H
+#ifndef EVALUATIONADAP_H
+#define EVALUATIONADAP_H
 #include <string>
 #include <fstream>  
 #include <iostream>
