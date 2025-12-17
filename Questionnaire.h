@@ -3,6 +3,9 @@
 
 #include <vector>
 #include <string>
+#include <fstream>  
+#include <iostream>
+#include <memory>
 #include "Question.h"
 
 class Questionnaire {
@@ -12,11 +15,12 @@ private:
 
 public:
     Questionnaire(const std::string& t = "");
-    ~Questionnaire();
+    ~Questionnaire()= default;
 
-    void ajouterQuestion(const std::vector<std::unique_ptr<Question>> & q);
+    void ajouterQuestion(const std::unique_ptr<Question> & q);
     int taille() const;
-    const std::vector<unqiue_ptr<Question>> & getQuestions() const;
+    const std::vector<std::unique_ptr<Question>> & getQuestions() const;
+    void sauvegarder(const string& nomFichier) const;
 
 };
 

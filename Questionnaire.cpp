@@ -2,23 +2,18 @@
 #include <iostream>
 
 Questionnaire::Questionnaire(const std::string& t)
-    : titre(t) {}
+    : d_titre(t) {}
 
-Questionnaire::~Questionnaire() {
-    for (Question* q : questions) {
-        delete q;
-    }
-}
+    
 
-void Questionnaire::ajouterQuestion(const std::vector<std::unique_ptr<Question>> & q) {
-    questions.move(q);
+void Questionnaire::ajouterQuestion(const std::unique_ptr<Question> & q) {
+    d_questions.push_back(std::move(q));
 }
 int Questionnaire::taille() const
-{ return d_questions.size() 
-}
+{ return d_questions.size() ;}
 
-const std::vector<unqiue_ptr<Question>> Questionnaire::getQuestions() const {
-    return questions;
+const std::vector<unique_ptr<Question>> & Questionnaire::getQuestions() const {
+    return d_questions;
 }
 void Questionnaire::sauvegarder(const string& nomFichier) const {
     ofstream fichier(nomFichier);
@@ -31,7 +26,7 @@ void Questionnaire::sauvegarder(const string& nomFichier) const {
     fichier << d_titre << endl;
     fichier << d_questions.size() << endl;
 
-    for (Question* q : questions) {
+    for (const auto & q : d_questions) {
         q->sauvegarder(fichier); 
     }
 
