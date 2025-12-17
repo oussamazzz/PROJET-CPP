@@ -7,13 +7,13 @@
 #include "Question.h"
 #include "Questionnaire.h"
 
-using namespace std;
 
 class Apprentissage {
 
 public:
 
     Apprentissage();;
-    void AfficheQuestionsAvecReponses();
+    void AfficheQuestionsAvecReponses (const Questionnaire & q) const;
     
 }
+#endif
