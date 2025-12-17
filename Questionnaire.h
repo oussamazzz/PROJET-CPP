@@ -3,7 +3,7 @@
 
 #include <vector>
 #include <string>
-#include <fstream>  
+#include <fstream>
 #include <iostream>
 #include <memory>
 #include "Question.h"
@@ -17,10 +17,12 @@ public:
     Questionnaire(const std::string& t = "");
     ~Questionnaire()= default;
 
-    void ajouterQuestion(const std::unique_ptr<Question> & q);
+    void ajouterQuestion(std::unique_ptr<Question>  q);
     int taille() const;
     const std::vector<std::unique_ptr<Question>> & getQuestions() const;
-    void sauvegarder(const string& nomFichier) const;
+    void sauvegarder(const std::string& nomFichier) const;
+
+
 
 };
 

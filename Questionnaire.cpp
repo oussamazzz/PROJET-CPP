@@ -4,9 +4,9 @@
 Questionnaire::Questionnaire(const std::string& t)
     : d_titre(t) {}
 
-    
 
-void Questionnaire::ajouterQuestion(const std::unique_ptr<Question> & q) {
+
+void Questionnaire::ajouterQuestion(std::unique_ptr<Question>  q) {
     d_questions.push_back(std::move(q));
 }
 int Questionnaire::taille() const
@@ -15,7 +15,7 @@ int Questionnaire::taille() const
 const std::vector<unique_ptr<Question>> & Questionnaire::getQuestions() const {
     return d_questions;
 }
-void Questionnaire::sauvegarder(const string& nomFichier) const {
+void Questionnaire::sauvegarder(const std::string& nomFichier) const {
     ofstream fichier(nomFichier);
 
     if (!fichier) {
@@ -27,7 +27,7 @@ void Questionnaire::sauvegarder(const string& nomFichier) const {
     fichier << d_questions.size() << endl;
 
     for (const auto & q : d_questions) {
-        q->sauvegarder(fichier); 
+        q->sauvegarder(fichier);
     }
 
     fichier.close();
