@@ -10,18 +10,33 @@ Questionnaire::~Questionnaire() {
     }
 }
 
-void Questionnaire::ajouterQuestion(Question* q) {
-    questions.push_back(q);
+void Questionnaire::ajouterQuestion(const std::vector<std::unique_ptr<Question>> & q) {
+    questions.move(q);
+}
+int Questionnaire::taille() const
+{ return d_questions.size() 
 }
 
-const std::vector<Question*>& Questionnaire::getQuestions() const {
+const std::vector<unqiue_ptr<Question>> Questionnaire::getQuestions() const {
     return questions;
 }
+void Questionnaire::sauvegarder(const string& nomFichier) const {
+    ofstream fichier(nomFichier);
 
-void Questionnaire::afficher() const {
-    std::cout << "Questionnaire : " << titre << std::endl;
-    for (size_t i = 0; i < questions.size(); ++i) {
-        std::cout << i + 1 << ". ";
-        questions[i]->afficherquestion();
+    if (!fichier) {
+        cout << "Erreur ouverture fichier.\n";
+        return;
     }
+
+    fichier << d_titre << endl;
+    fichier << d_questions.size() << endl;
+
+    for (Question* q : questions) {
+        q->sauvegarder(fichier); 
+    }
+
+    fichier.close();
 }
+
+
+
