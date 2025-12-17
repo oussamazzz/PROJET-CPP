@@ -5,6 +5,7 @@
     #include "Question.h"
     #include "Questionnaire.h"
     #include "Evaluation.h"
+    #include "Apprentissage.h"
 
     Apprentissage::Apprentissage()
     {}
