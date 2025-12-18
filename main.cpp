@@ -6,6 +6,8 @@
 #include "EvaluationSecChance.h"
 #include "EvaluationAdap.h"
 
+using namespace std;
+
 int main() {
     Questionnaire questionnaire;
 
@@ -30,18 +32,18 @@ int main() {
             break;
         }
         case 2: {
-            EvaluationTest eval;
-            eval.lancer(questionnaire);
+            EvaluationTest eval(questionnaire);
+            eval.lancer();
             break;
         }
         case 3: {
-            EvaluationSecChance eval;
-            eval.lancer(questionnaire);
+            EvaluationSecondeChance eval(questionnaire);
+            eval.lancer();
             break;
         }
         case 4: {
-            EvaluationAdap eval;
-            eval.lancer(questionnaire);
+            EvaluationAdaptative eval(questionnaire);
+            eval.lancer();
             break;
         }
         default:

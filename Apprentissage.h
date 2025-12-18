@@ -12,8 +12,8 @@ class Apprentissage {
 
 public:
 
-    Apprentissage();;
+    Apprentissage();
     void AfficheQuestionsAvecReponses (const Questionnaire & q) const;
     
-}
+};
 #endif

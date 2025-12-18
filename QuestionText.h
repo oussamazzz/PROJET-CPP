@@ -13,7 +13,7 @@ using namespace std;
 
 class QuestionText : public Question {
 public :
-    QuestionText(string &text, string &titre,string &reponse);
+    QuestionText(const string &titre, const string &text, const string &reponse);
     bool verificationreponse(const string &reponse) const override ;
     string BonneReponse() const override ;
     void sauvegarder(ofstream &fichiertxt) const override;

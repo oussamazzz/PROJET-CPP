@@ -7,7 +7,8 @@
 #include <string>
 using namespace std;
 
-QuestionText::QuestionText(string &titre, string &text,string &reponse):Question{titre,text},d_reponse{reponse}{}
+QuestionText::QuestionText(const string &titre, const string &text, const string &reponse)
+    : Question{titre, text}, d_reponse{reponse} {}
 
 bool QuestionText::verificationreponse(const string &reponse) const {
     return reponse == d_reponse;
