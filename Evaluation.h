@@ -24,6 +24,9 @@ public:
 
     bool poserQuestion(const std::unique_ptr<Question>& ptr, bool afficherBonne);
     int get_NbQuestions()const ;
+
+    int get_Essais() const { return d_essais; }
+    int get_Bonnes() const { return d_bonnes; }
 };
 
 #endif
