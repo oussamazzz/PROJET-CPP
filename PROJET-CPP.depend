@@ -1,0 +1,160 @@
+# depslib dependency file v1.0
+1766522270 source:c:\users\ramzi\desktop\projet_qualitr_prog\projet-cpp\main.cpp
+	<iostream>
+	"Questionnaire.h"
+	"Apprentissage.h"
+	"EvaluationTest.h"
+	"EvaluationSecChance.h"
+	"EvaluationAdap.h"
+	"goto_xy_windows.h"
+
+1766521270 c:\users\ramzi\desktop\projet_qualitr_prog\projet-cpp\questionnaire.h
+	<vector>
+	<string>
+	<fstream>
+	<iostream>
+	<memory>
+	"Question.h"
+
+1765978445 c:\users\ramzi\desktop\projet_qualitr_prog\projet-cpp\question.h
+	<string>
+	<fstream>
+	<iostream>
+
+1766176375 c:\users\ramzi\desktop\projet_qualitr_prog\projet-cpp\apprentissage.h
+	<string>
+	<fstream>
+	<iostream>
+	<memory>
+	"Question.h"
+	"Questionnaire.h"
+
+1766176376 c:\users\ramzi\desktop\projet_qualitr_prog\projet-cpp\evaluationtest.h
+	<string>
+	<fstream>
+	<iostream>
+	<memory>
+	"Question.h"
+	"Questionnaire.h"
+	"Evaluation.h"
+
+1766176376 c:\users\ramzi\desktop\projet_qualitr_prog\projet-cpp\evaluation.h
+	<string>
+	<fstream>
+	<iostream>
+	<memory>
+	"Question.h"
+	"Questionnaire.h"
+
+1766176376 c:\users\ramzi\desktop\projet_qualitr_prog\projet-cpp\evaluationsecchance.h
+	<string>
+	<fstream>
+	<iostream>
+	<memory>
+	"Question.h"
+	"Questionnaire.h"
+	"Evaluation.h"
+
+1766176376 c:\users\ramzi\desktop\projet_qualitr_prog\projet-cpp\evaluationadap.h
+	<string>
+	<fstream>
+	<iostream>
+	<memory>
+	"Question.h"
+	"Questionnaire.h"
+	"Evaluation.h"
+
+1766176375 source:c:\users\ramzi\desktop\projet_qualitr_prog\projet-cpp\apprentissage.cpp
+	<string>
+	<fstream>
+	<iostream>
+	<memory>
+	"Question.h"
+	"Questionnaire.h"
+	"Evaluation.h"
+	"Apprentissage.h"
+
+1766176375 source:c:\users\ramzi\desktop\projet_qualitr_prog\projet-cpp\evaluation.cpp
+	<string>
+	<fstream>
+	<iostream>
+	<memory>
+	"Question.h"
+	"Questionnaire.h"
+	"Evaluation.h"
+
+1766176376 source:c:\users\ramzi\desktop\projet_qualitr_prog\projet-cpp\evaluationadap.cpp
+	"EvaluationAdap.h"
+	"Questionnaire.h"
+	<iostream>
+	<vector>
+	<cstdlib>
+	<ctime>
+
+1766176376 source:c:\users\ramzi\desktop\projet_qualitr_prog\projet-cpp\evaluationsecchance.cpp
+	<string>
+	<fstream>
+	<iostream>
+	<memory>
+	"Question.h"
+	"Questionnaire.h"
+	"Evaluation.h"
+	"EvaluationSecChance.h"
+
+1766176376 source:c:\users\ramzi\desktop\projet_qualitr_prog\projet-cpp\evaluationtest.cpp
+	<string>
+	<fstream>
+	<iostream>
+	<memory>
+	"Question.h"
+	"Questionnaire.h"
+	"Evaluation.h"
+	"EvaluationTest.h"
+
+1765661033 source:c:\users\ramzi\desktop\projet_qualitr_prog\projet-cpp\question.cpp
+	"Question.h"
+	<iostream>
+	<string>
+
+1766521254 source:c:\users\ramzi\desktop\projet_qualitr_prog\projet-cpp\questionnaire.cpp
+	"Questionnaire.h"
+	"QuestionText.h"
+	"QuestionNum.h"
+	"QuestionQCM.h"
+	<iostream>
+
+1766176376 c:\users\ramzi\desktop\projet_qualitr_prog\projet-cpp\questiontext.h
+	"Question.h"
+	<string>
+	<fstream>
+
+1765978445 c:\users\ramzi\desktop\projet_qualitr_prog\projet-cpp\questionnum.h
+	"Question.h"
+	<string>
+	<fstream>
+
+1765978445 c:\users\ramzi\desktop\projet_qualitr_prog\projet-cpp\questionqcm.h
+	"Question.h"
+	<string>
+	<fstream>
+	<vector>
+
+1765978445 source:c:\users\ramzi\desktop\projet_qualitr_prog\projet-cpp\questionnum.cpp
+	"QuestionNum.h"
+	<fstream>
+	<string>
+
+1765978445 source:c:\users\ramzi\desktop\projet_qualitr_prog\projet-cpp\questionqcm.cpp
+	"QuestionQCM.h"
+
+1766176376 source:c:\users\ramzi\desktop\projet_qualitr_prog\projet-cpp\questiontext.cpp
+	"QuestionText.h"
+	<fstream>
+	<string>
+
+1766521810 source:c:\users\ramzi\desktop\projet_qualitr_prog\projet-cpp\goto_xy_windows.cpp
+	<windows.h>
+	"goto_xy_windows.h"
+
+1766521810 c:\users\ramzi\desktop\projet_qualitr_prog\projet-cpp\goto_xy_windows.h
+
