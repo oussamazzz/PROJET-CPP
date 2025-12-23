@@ -33,7 +33,7 @@ void Questionnaire::sauvegarder(const std::string& nomFichier) const {
     fichier.close();
 }
 
-void Questionnaire::charger(const std::string& nomFichier) {
+void Questionnaire::lectureDepuisFichier(const std::string& nomFichier) {
     d_questions.clear();
 
     ifstream fichier(nomFichier);

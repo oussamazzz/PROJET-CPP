@@ -11,7 +11,10 @@ using namespace std;
 int main() {
     Questionnaire questionnaire;
 
-    questionnaire.charger("questionnaire.txt");
+    questionnaire.lectureDepuisFichier("C:\\Users\\ramzi\\Desktop\\projet_Qualitr_Prog\\PROJET-CPP\\bin\\Debug\\questionnaire.txt");
+    cout << "Nombre de questions chargees = "
+     << questionnaire.taille() << endl;
+
 
     int choix;
     cout << "===============================\n";
