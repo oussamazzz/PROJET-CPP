@@ -57,20 +57,20 @@ void Questionnaire::lectureDepuisFichier(const std::string& nomFichier) {
         string type;
         getline(fichier, type);
 
-        // QuestionText
-        if (type == "QuestionText") {
+        // QuestionTexte
+        if (type == "QuestionTexte" || type == "QuestionText") {
             string titre, texte, reponse;
             getline(fichier, titre);
             getline(fichier, texte);
             getline(fichier, reponse);
 
             d_questions.push_back(
-                make_unique<QuestionText>(titre, texte, reponse)
+                make_unique<QuestionTexte>(titre, texte, reponse)
             );
         }
 
-        //  QuestionNum
-        else if (type == "QuestionNum") {
+        //  QuestionNumerique
+        else if (type == "QuestionNumerique" || type == "QuestionNum") {
             string titre, texte;
             int reponse, minVal, maxVal;
 
@@ -80,7 +80,7 @@ void Questionnaire::lectureDepuisFichier(const std::string& nomFichier) {
             fichier.ignore();
 
             d_questions.push_back(
-                make_unique<QuestionNum>(titre, texte, reponse, minVal, maxVal)
+                make_unique<QuestionNumerique>(titre, texte, reponse, minVal, maxVal)
             );
         }
 

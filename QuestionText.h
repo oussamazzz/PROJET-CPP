@@ -11,9 +11,9 @@
 using namespace std;
 
 
-class QuestionText : public Question {
+class QuestionTexte : public Question {
 public :
-    QuestionText(const string &titre, const string &text, const string &reponse);
+    QuestionTexte(const string &titre, const string &text, const string &reponse);
     bool verificationreponse(const string &reponse) const override ;
     string BonneReponse() const override ;
     void sauvegarder(ofstream &fichiertxt) const override;

@@ -11,7 +11,7 @@ using namespace std;
 int main() {
     Questionnaire questionnaire;
     questionnaire.lectureDepuisFichier(
-        "C:\\Users\\ramzi\\Desktop\\projet_Qualitr_Prog\\PROJET-CPP\\bin\\Debug\\questionnaire.txt"
+        "bin\\Debug\\questionnaire.txt"
     );
 
     system("cls");

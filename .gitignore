@@ -1,6 +1,8 @@
 .vscode/
 .idea/
 
+.scannerwork/
+
 *.exe
 *.o
 *.obj
@@ -9,5 +11,9 @@
 
 *.tmp
 *.swp
+*.html
 
+*.cbp
+*.depend 
+.codacy-coverage/
 

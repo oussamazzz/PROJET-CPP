@@ -24,7 +24,7 @@ TEST_CASE("test dans EvaluationSecondeChance sur .lancer") {
 
     SUBCASE(" si une question avec rep mauvaise puis bonne") {
         Questionnaire q("Second chance");
-        q.ajouterQuestion(std::make_unique<QuestionText>(
+        q.ajouterQuestion(std::make_unique<QuestionTexte>(
             std::string("Q1"), std::string("Capital de la France ?"), std::string("Paris")));
 
         EvaluationSecondeChance evaluation(q);
@@ -43,7 +43,7 @@ TEST_CASE("test dans EvaluationSecondeChance sur .lancer") {
 
     SUBCASE("une question avec rep mauvaise puis mauvaise") {
         Questionnaire q("Second chance");
-        q.ajouterQuestion(std::make_unique<QuestionText>(
+        q.ajouterQuestion(std::make_unique<QuestionTexte>(
             std::string("Q1"), std::string("Capital de la France ?"), std::string("Paris")));
 
         EvaluationSecondeChance evaluation(q);
@@ -62,9 +62,9 @@ TEST_CASE("test dans EvaluationSecondeChance sur .lancer") {
 
     SUBCASE("deux questions avec combinaison de cas") {
         Questionnaire q("Second chance");
-        q.ajouterQuestion(std::make_unique<QuestionText>(
+        q.ajouterQuestion(std::make_unique<QuestionTexte>(
             std::string("Q1"), std::string("Capital de la France ?"), std::string("Paris")));
-        q.ajouterQuestion(std::make_unique<QuestionText>(
+        q.ajouterQuestion(std::make_unique<QuestionTexte>(
             std::string("Q2"), std::string("2+2 ?"), std::string("4")));
 
         EvaluationSecondeChance evaluation(q);
