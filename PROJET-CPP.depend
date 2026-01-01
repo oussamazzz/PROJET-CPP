@@ -158,7 +158,7 @@
 
 1766521810 c:\users\ramzi\desktop\projet_qualitr_prog\projet-cpp\goto_xy_windows.h
 
-1766416728 source:c:\users\deel\desktop\projetqualite\projet-cpp\apprentissage.cpp
+1767298114 source:c:\users\deel\desktop\projetqualite\projet-cpp\apprentissage.cpp
 	<string>
 	<fstream>
 	<iostream>
@@ -168,12 +168,12 @@
 	"Evaluation.h"
 	"Apprentissage.h"
 
-1765979147 c:\users\deel\desktop\projetqualite\projet-cpp\question.h
+1767298114 c:\users\deel\desktop\projetqualite\projet-cpp\question.h
 	<string>
 	<fstream>
 	<iostream>
 
-1767277769 c:\users\deel\desktop\projetqualite\projet-cpp\questionnaire.h
+1767299411 c:\users\deel\desktop\projetqualite\projet-cpp\questionnaire.h
 	<vector>
 	<string>
 	<fstream>
@@ -189,7 +189,7 @@
 	"Question.h"
 	"Questionnaire.h"
 
-1766416728 c:\users\deel\desktop\projetqualite\projet-cpp\apprentissage.h
+1767298114 c:\users\deel\desktop\projetqualite\projet-cpp\apprentissage.h
 	<string>
 	<fstream>
 	<iostream>
@@ -267,48 +267,51 @@
 
 1767277769 c:\users\deel\desktop\projetqualite\projet-cpp\goto_xy_windows.h
 
-1765535773 source:c:\users\deel\desktop\projetqualite\projet-cpp\question.cpp
+1767298114 source:c:\users\deel\desktop\projetqualite\projet-cpp\question.cpp
 	"Question.h"
 	<iostream>
 	<string>
 
-1767277769 source:c:\users\deel\desktop\projetqualite\projet-cpp\questionnaire.cpp
+1767300150 source:c:\users\deel\desktop\projetqualite\projet-cpp\questionnaire.cpp
 	"Questionnaire.h"
 	"QuestionText.h"
 	"QuestionNum.h"
 	"QuestionQCM.h"
 	<iostream>
+	<fstream>
+	<memory>
 
-1767277769 c:\users\deel\desktop\projetqualite\projet-cpp\questiontext.h
+1767298114 c:\users\deel\desktop\projetqualite\projet-cpp\questiontext.h
 	"Question.h"
 	<string>
 	<fstream>
 
-1767277769 c:\users\deel\desktop\projetqualite\projet-cpp\questionnum.h
+1767298114 c:\users\deel\desktop\projetqualite\projet-cpp\questionnum.h
 	"Question.h"
 	<string>
 	<fstream>
 
-1765979147 c:\users\deel\desktop\projetqualite\projet-cpp\questionqcm.h
+1767298114 c:\users\deel\desktop\projetqualite\projet-cpp\questionqcm.h
 	"Question.h"
 	<string>
 	<fstream>
 	<vector>
 
-1767277769 source:c:\users\deel\desktop\projetqualite\projet-cpp\questionnum.cpp
+1767298114 source:c:\users\deel\desktop\projetqualite\projet-cpp\questionnum.cpp
 	"QuestionNum.h"
 	<fstream>
 	<string>
+	<stdexcept>
 
-1765979147 source:c:\users\deel\desktop\projetqualite\projet-cpp\questionqcm.cpp
+1767298114 source:c:\users\deel\desktop\projetqualite\projet-cpp\questionqcm.cpp
 	"QuestionQCM.h"
 
-1767277769 source:c:\users\deel\desktop\projetqualite\projet-cpp\questiontext.cpp
+1767298114 source:c:\users\deel\desktop\projetqualite\projet-cpp\questiontext.cpp
 	"QuestionText.h"
 	<fstream>
 	<string>
 
-1767286063 source:c:\users\deel\desktop\projetqualite\projet-cpp\main.cpp
+1767299835 source:c:\users\deel\desktop\projetqualite\projet-cpp\main.cpp
 	<iostream>
 	<string>
 	"Questionnaire.h"
