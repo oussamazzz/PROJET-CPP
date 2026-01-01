@@ -9,27 +9,27 @@ TEST_CASE("QuestionNumerique - verificationreponse") {
     QuestionNumerique q("Maths","2+2 ?",4,0,10);
 
     SUBCASE("Bonnee reponse") {
-        CHECK(q.verificationreponse("4") == true);
+        REQUIRE(q.verificationreponse("4") == true);
     }
 
     SUBCASE("Mauvaised reponse") {
-        CHECK(q.verificationreponse("3") == false);
+        REQUIRE(q.verificationreponse("3") == false);
     }
     SUBCASE("Réponse hors limite") {
-        CHECK(q.verificationreponse("11") == false);
-        CHECK(q.verificationreponse("-5") == false);
+        REQUIRE(q.verificationreponse("11") == false);
+        REQUIRE(q.verificationreponse("-5") == false);
     }
     SUBCASE("Réponse non numérique") {
-        CHECK(q.verificationreponse("abc") == false);
-        CHECK(q.verificationreponse("4a") == false);
-        CHECK(q.verificationreponse("") == false);
+        REQUIRE(q.verificationreponse("abc") == false);
+        REQUIRE(q.verificationreponse("4a") == false);
+        REQUIRE(q.verificationreponse("") == false);
     }
 }
 
 TEST_CASE("QuestionNumerique - BonneReponse") {
     SUBCASE("Retourne bien la réponse numérique en string") {
         QuestionNumerique q("Maths","5*3 ?",15,0,20);
-         CHECK(q.BonneReponse() == "15");
+         REQUIRE(q.BonneReponse() == "15");
     }
 }
 
@@ -47,13 +47,13 @@ TEST_CASE("QuestionNumerique - sauvegarder fichier") {
         std::ifstream in("temp.txt");
         std::string l;
 
-        std::getline(in,l); CHECK(l == "QuestionNumerique");
+        std::getline(in,l); REQUIRE(l == "QuestionNumerique");
 
-        std::getline(in,l); CHECK(l == "Maths");
-        std::getline(in,l); CHECK(l == "2+2 ?");
-        std::getline(in,l); CHECK(l == "4");
-        std::getline(in,l); CHECK(l == "0");
-        std::getline(in,l); CHECK(l == "10");
+        std::getline(in,l); REQUIRE(l == "Maths");
+        std::getline(in,l); REQUIRE(l == "2+2 ?");
+        std::getline(in,l); REQUIRE(l == "4");
+        std::getline(in,l); REQUIRE(l == "0");
+        std::getline(in,l); REQUIRE(l == "10");
 
         in.close();
         remove("temp.txt");
@@ -73,11 +73,11 @@ TEST_CASE("QuestionNumerique - afficherquestion()") {
         std::cout.rdbuf(old);
 
         std::string out = oss.str();
-        CHECK(out.find("Maths") != std::string::npos);
+        REQUIRE(out.find("Maths") != std::string::npos);
 
-        CHECK(out.find("2+2 ?") != std::string::npos);
+        REQUIRE(out.find("2+2 ?") != std::string::npos);
 
-        CHECK(out.find("0") != std::string::npos);
-        CHECK(out.find("10") != std::string::npos);
+        REQUIRE(out.find("0") != std::string::npos);
+        REQUIRE(out.find("10") != std::string::npos);
     }
 }

@@ -69,7 +69,7 @@ TEST_CASE("AfficheQuestionsAvecReponses")
         std::streambuf* oldCout = std::cout.rdbuf(fakeOutput.rdbuf());
 
         Questionnaire q;
-        q.ajouterQuestion(new QuestionText("Question unique", "Bonne reponse"));
+        q.ajouterQuestion(std::make_unique<QuestionTexte>("Titre", "Question unique", "Bonne reponse"));
 
         app.AfficheQuestionsAvecReponses(q);
 
