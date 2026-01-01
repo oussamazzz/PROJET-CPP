@@ -11,6 +11,7 @@
 class EvaluationSecondeChance : public Evaluation {
 public:
     EvaluationSecondeChance(Questionnaire& q);
+    
     void lancer() override;
 };
 

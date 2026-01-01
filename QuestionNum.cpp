@@ -1,33 +1,42 @@
 #include "QuestionNum.h"
 #include <fstream>
 #include <string>
-using namespace std;
+#include <stdexcept>
 
-QuestionNum::QuestionNum(const string &titre, const string &text, int reponse, int limiteminimale, int limitemaximale)
+QuestionNumerique::QuestionNumerique(const std::string &titre, const std::string &text, int reponse, int limiteminimale, int limitemaximale)
     : Question (titre, text), d_reponse(reponse), d_limiteminimale(limiteminimale), d_limitemaximale(limitemaximale) {}
 
-bool QuestionNum::verificationreponse(const string &reponse) const {
-    int reponsen = stoi(reponse);
-  if (reponsen >= d_limiteminimale && reponsen <= d_limitemaximale) {
-      return reponsen == d_reponse;
-  } else {
-      return false;
-  }
-    
+bool QuestionNumerique::verificationreponse(const std::string &reponse) const {
+    try {
+        size_t pos = 0;
+        
+    int reponsen = std::stoi(reponse, &pos);
+
+        if (pos != reponse.size()) {
+            return false;
+        }
+        if (reponsen < d_limiteminimale || reponsen > d_limitemaximale) {
+            return false;
+        }
+
+        return reponsen == d_reponse;
+
+    } catch (const std::exception &) {  return false; }
 }
 
-string QuestionNum::BonneReponse() const {
-    return to_string(d_reponse);
+std::string QuestionNumerique::BonneReponse() const {
+    return std::to_string(d_reponse);
 }
-void QuestionNum::sauvegarder(ofstream &fichiertxt) const {
-    fichiertxt << "QuestionNum" << endl;
-    fichiertxt << d_titre << endl;
-    fichiertxt << d_text << endl;
-    fichiertxt << d_reponse << endl;
-    fichiertxt << d_limiteminimale << endl;
-    fichiertxt << d_limitemaximale << endl;
+void QuestionNumerique::sauvegarder(std::ofstream &fichiertxt) const {
+    fichiertxt << "QuestionNumerique" << std::endl;
+    fichiertxt << d_titre << std::endl;
+    fichiertxt << d_text << std::endl;
+    fichiertxt << d_reponse << std::endl;
+    fichiertxt << d_limiteminimale << std::endl;
+    fichiertxt << d_limitemaximale << std::endl;
 }
-void QuestionNum::afficherquestion() const {
+void QuestionNumerique::afficherquestion() const {
    Question::afficherquestion();
-   cout <<"veuillez choisir un nombre entre " << d_limitemaximale << " et " <<  d_limiteminimale << "." << endl;
+
+    std::cout <<"veuillez choisir un nombre entre " << d_limiteminimale << " et " <<  d_limitemaximale << "." << std::endl;
 }

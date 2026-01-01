@@ -22,10 +22,10 @@ void EvaluationSecondeChance::lancer() {
     }
 
 
-    const auto& ptr = d_questionnaire.getQuestions();
+    const auto& questions = d_questionnaire.getQuestions();
     int numQuestion = 0;
 
-    for (const auto& q : ptr) {
+    for (const auto& q : questions) {
         
         ++numQuestion;
         std::cout << "Question courante : " << numQuestion << " / " << total << "\n";

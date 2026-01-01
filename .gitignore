@@ -10,4 +10,23 @@
 *.tmp
 *.swp
 
+*.gcda
+*.gcno
+coverage.info
+coverage/
+out/
 
+
+test/output/
+
+
+.codacy-coverage/
+.scannerwork/
+
+
+goto_xy_windows.cpp
+goto_xy_windows.h
+
+
+*.depend
+*.cbp

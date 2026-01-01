@@ -1,75 +1,144 @@
 #include <iostream>
+#include <string>
 #include "Questionnaire.h"
 #include "Apprentissage.h"
 #include "EvaluationTest.h"
 #include "EvaluationSecChance.h"
 #include "EvaluationAdap.h"
-#include "goto_xy_windows.h"
-
-using namespace std;
 
 int main() {
-    Questionnaire questionnaire;
-    questionnaire.lectureDepuisFichier(
-        "C:\\Users\\ramzi\\Desktop\\projet_Qualitr_Prog\\PROJET-CPP\\bin\\Debug\\questionnaire.txt"
-    );
+    while (true) {
+        system("cls");
 
-    system("cls");
+        Questionnaire questionnaire;
+        std::string nomFichier;
 
-    int x = 25;
-    int y = 3;
+        bool chargeOk = false;
+        while (!chargeOk) {
+            std::cout << "Entrez le nom du fichier questionnaire : ";
+            std::getline(std::cin, nomFichier);
 
-    goto_xy(x, y++);
-    cout << "===============================";
-    goto_xy(x, y++);
-    cout << "      Gestion Questionnaire";
-    goto_xy(x, y++);
-    cout << "===============================";
+            if (nomFichier.empty()) {
+                std::cout << "Nom de fichier vide. Reessayez.\n";
+                continue;
+            }
 
-    y++;
-
-    goto_xy(x, y++);
-    cout << "1. Apprentissage";
-    goto_xy(x, y++);
-    cout << "2. Evaluation (test)";
-    goto_xy(x, y++);
-    cout << "3. Evaluation (seconde chance)";
-    goto_xy(x, y++);
-    cout << "4. Evaluation (adaptative)";
-
-    y += 2;
-    goto_xy(x, y);
-    cout << "Choix : ";
-
-    int choix;
-    cin >> choix;
-    cin.ignore();
-
-    system("cls");
-
-    switch (choix) {
-        case 1: {
-            Apprentissage app;
-            app.AfficheQuestionsAvecReponses(questionnaire);
-            break;
+            chargeOk = questionnaire.lectureDepuisFichier(nomFichier);
+            if (!chargeOk) {
+                std::cout << "\nEchec du chargement.\n";
+                std::cout << "Voulez-vous reessayer avec un autre nom ? (o/n) : ";
+                char r;
+                std::cin >> r;
+                std::cin.ignore();
+                if (r == 'o' || r == 'O') {
+                    system("cls");
+                    continue;
+                } else {
+                    std::cout << "Au revoir.\n";
+                    return 0;
+                }
+            }
         }
-        case 2: {
-            EvaluationTest eval(questionnaire);
-            eval.lancer();
-            break;
+
+        bool continuerAvecCeFichier = true;
+        while (continuerAvecCeFichier) {
+            system("cls");
+
+            std::cout << "===============================\n";
+            std::cout << "      Gestion Questionnaire\n";
+            std::cout << "===============================\n\n";
+
+            std::cout << "1. Apprentissage\n";
+            std::cout << "2. Evaluation\n";
+            std::cout << "3. Quitter le programme\n\n";
+
+            std::cout << "Choix : ";
+
+            int choixPrincipal;
+            std::cin >> choixPrincipal;
+            std::cin.ignore();
+
+            system("cls");
+
+            switch (choixPrincipal) {
+                case 1: {
+                    Apprentissage app;
+                    app.AfficheQuestionsAvecReponses(questionnaire);
+                    break;
+                }
+                case 2: {
+                    int choixEval = 0;
+                    do {
+                        system("cls");
+
+                        std::cout << "====== Choix de l'evaluation ======\n";
+                        std::cout << "1. Evaluation (test)\n";
+                        std::cout << "2. Evaluation (seconde chance)\n";
+                        std::cout << "3. Evaluation (adaptative)\n";
+                        std::cout << "4. Retour au menu principal\n\n";
+                        std::cout << "Choix : ";
+
+                        std::cin >> choixEval;
+                        std::cin.ignore();
+                        system("cls");
+
+                        switch (choixEval) {
+                            case 1: {
+                                EvaluationTest evaluation(questionnaire);
+                                evaluation.lancer();
+                                break;
+                            }
+                            case 2: {
+                                EvaluationSecondeChance evaluation(questionnaire);
+                                evaluation.lancer();
+                                break;
+                            }
+                            case 3: {
+                                EvaluationAdaptative evaluation(questionnaire);
+                                evaluation.lancer();
+                                break;
+                            }
+                            case 4:
+                                break;
+                            default:
+                                std::cout << "Choix invalide.\n";
+                                break;
+                        }
+
+                        if (choixEval >= 1 && choixEval <= 3) {
+                            std::cout << "\nAppuyez sur Entree pour revenir au menu des evaluations...";
+                            std::cin.get();
+                        }
+                    } while (choixEval != 4);
+                    break;
+                }
+                case 3:
+                    std::cout << "Au revoir.\n";
+                    return 0;
+                default:
+                    std::cout << "Choix invalide.\n";
+                    break;
+            }
+
+            std::cout << "\nQue voulez-vous faire maintenant ?\n";
+            std::cout << "1. Revenir au menu (meme questionnaire)\n";
+            std::cout << "2. Charger un autre questionnaire\n";
+            std::cout << "3. Quitter le programme\n";
+            std::cout << "Choix : ";
+
+            int suite;
+            std::cin >> suite;
+            std::cin.ignore();
+
+            if (suite == 1) {
+                continue;
+            } else if (suite == 2) {
+                continuerAvecCeFichier = false;
+            } else {
+                std::cout << "Au revoir.\n";
+                return 0;
+            }
         }
-        case 3: {
-            EvaluationSecondeChance eval(questionnaire);
-            eval.lancer();
-            break;
-        }
-        case 4: {
-            EvaluationAdaptative eval(questionnaire);
-            eval.lancer();
-            break;
-        }
-        default:
-            cout << "Choix invalide." << endl;
     }
 
     return 0;

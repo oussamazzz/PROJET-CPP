@@ -3,20 +3,18 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
+Question::Question(const std::string &titre, const std::string &text):d_titre{titre},d_text{text}{}
 
-Question::Question(const string &titre, const string &text):d_titre{titre},d_text{text}{}
-
-string Question::get_titre() const {
+std::string Question::get_titre() const {
     return d_titre;
 }      
-string Question::get_text() const {
+std::string Question::get_text() const {
     return d_text;
 }
 
 void Question::afficherquestion() const {
-    cout << d_titre << endl;
-    cout << d_text << endl;
+    std::cout << "Thème : " << d_titre << std::endl;
+    std::cout << d_text << std::endl;
 }
 
 

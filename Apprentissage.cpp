@@ -7,28 +7,29 @@
 #include "Evaluation.h"
 #include "Apprentissage.h"
 
-using namespace std;
 
 Apprentissage::Apprentissage()
 {}
 
-void Apprentissage::AfficheQuestionsAvecReponses(const Questionnaire & q) const
+void Apprentissage::AfficheQuestionsAvecReponses(const Questionnaire& q) const
 {
-    char choix;
+    char choix = 'o';
 
-    for (int i = 0; i < q.taille(); i++) {
-        cout << "\nQuestion " << i + 1 << " / " << q.taille() << endl;
-        cout << "------------------" << endl;
+    for (int i = 0; i < q.taille() && (choix == 'o' || choix == 'O'); ++i)
+    {
+        std::cout << "\nQuestion " << i + 1 << " / " << q.taille() << std::endl;
+        std::cout << "------------------" << std::endl;
 
-        q.getQuestions()[i]->afficherquestion();
-        cout << "Bonne reponse : " << q.getQuestions()[i]->BonneReponse() << endl;
+        Question* question = q.getQuestions()[i].get();
+        question->afficherquestion();
 
-        cout << "\nAfficher la question suivante ? (o = oui / autre = non) : ";
-        cin >> choix;
+        std::cout << "Bonne reponse : "
+             << question->BonneReponse() << std::endl;
 
-        if (choix != 'o' && choix != 'O') {
-            cout << "Fin de la phase d'apprentissage." << endl;
-            break;
-        }
+        std::cout << "\nAfficher la question suivante ? (o = oui / autre = non) : ";
+        std::cin >> choix;
     }
+
+    std::cout << "Fin de la phase d'apprentissage." << std::endl;
 }
+    

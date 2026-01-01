@@ -25,8 +25,8 @@ TEST_CASE("test dans EvaluationTest sur .lancer") {
     SUBCASE("si questionnaire avec une mauvaise et une bonne reponse") {
         Questionnaire q("Test");
 
-        q.ajouterQuestion ( std::make_unique<QuestionText> ( std::string("Q1") , std::string ("Capital de la France ?") , std::string("Paris") ));
-        q.ajouterQuestion ( std::make_unique<QuestionText> ( std::string("Q2") , std::string("2+2 ?") , std::string("4") ));
+        q.ajouterQuestion ( std::make_unique<QuestionTexte> ( std::string("Q1") , std::string ("Capital de la France ?") , std::string("Paris") ));
+        q.ajouterQuestion ( std::make_unique<QuestionTexte> ( std::string("Q2") , std::string("2+2 ?") , std::string("4") ));
 
         std::istringstream fakeInput("Lyon\n4\n");
         std::streambuf* oldCin = std::cin.rdbuf(fakeInput.rdbuf());

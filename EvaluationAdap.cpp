@@ -17,7 +17,7 @@ void EvaluationAdaptative::lancer() {
         return;
     }
 
-    const auto& qs = d_questionnaire.getQuestions();
+    const auto& questions = d_questionnaire.getQuestions();
 
     std::srand(std::time(0));
 
@@ -41,7 +41,7 @@ void EvaluationAdaptative::lancer() {
         std::cout << "Il reste " << (total - numQuestion) << " question(s) après celle-ci.\n";
 
         ++d_essais;
-        bool correct = poserQuestion(qs[idx], false);
+        bool correct = poserQuestion(questions[idx], false);
         if (correct) {
             ++d_bonnes;
         } else {
@@ -53,7 +53,7 @@ void EvaluationAdaptative::lancer() {
     for (int idx : aReposer) {
         std::cout << "Question reposée :\n";
         ++d_essais;
-        bool correct = poserQuestion(qs[idx], true);
+        bool correct = poserQuestion(questions[idx], true);
         if (correct) {
             ++d_bonnes;
         }

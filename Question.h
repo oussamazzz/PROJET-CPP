@@ -5,25 +5,23 @@
 #include <fstream>  
 #include <iostream>
 
-using namespace std;
-
 
 class Question {
 
     public:
 
-    Question(const string &titre,const string &text);
+    Question(const std::string &titre,const std::string &text);
     virtual ~Question()=default;
-    string get_titre()  const ;
-    string get_text() const ;
-    virtual void sauvegarder(ofstream& fichiertxt)const =0 ;
-    virtual bool verificationreponse(const string& reponse) const =0;
-    virtual string BonneReponse() const =0;
+    std::string get_titre()  const ;
+    std::string get_text() const ;
+    virtual void sauvegarder(std::ofstream& fichiertxt)const =0 ;
+    virtual bool verificationreponse(const std::string& reponse) const =0;
+    virtual std::string BonneReponse() const =0;
     virtual void afficherquestion() const   ;
 
 protected:
-    string d_titre;
-    string d_text;
+    std::string d_titre;
+    std::string d_text;
 
     
 

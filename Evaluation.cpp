@@ -15,21 +15,21 @@ int Evaluation::get_NbQuestions() const {
 
 
 
-bool Evaluation::poserQuestion(const std::unique_ptr<Question>& ptr, bool afficherBonneReponse) {
+bool Evaluation::poserQuestion(const std::unique_ptr<Question>& question, bool afficherBonneReponse) {
 
-    ptr->afficherquestion();
+    question->afficherquestion();
 
     std::cout << "Votre réponse : ";
     std::string reponse;
     std::getline(std::cin, reponse);
 
-    bool correct = ptr->verificationreponse(reponse);
+    bool correct = question->verificationreponse(reponse);
 
     
     std::cout << (correct ? "Bonne réponse.\n" : "Mauvaise réponse.\n");
 
     if (afficherBonneReponse) {
-        std::cout << "Réponse correct : " << ptr->BonneReponse() << "\n";
+        std::cout << "Réponse correct : " << question->BonneReponse() << "\n";
     }
 
     return correct;

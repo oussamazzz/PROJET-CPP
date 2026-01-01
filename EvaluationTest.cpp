@@ -20,12 +20,12 @@ void EvaluationTest::lancer() {
 
     int numQuestion = 0;
 
-    for (const auto& ptr : d_questionnaire.getQuestions()) { 
+    for (const auto& questions : d_questionnaire.getQuestions()) { 
 
         ++numQuestion;
         std::cout << "Question courante : " << numQuestion << " / " << total << "\n";
         ++d_essais;
-        bool correct = poserQuestion(ptr, false);
+        bool correct = poserQuestion(questions, false);
         if (correct) ++d_bonnes;
     }
     

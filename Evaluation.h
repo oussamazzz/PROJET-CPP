@@ -22,7 +22,7 @@ public:
     virtual ~Evaluation() = default;
     virtual void lancer() = 0;
 
-    bool poserQuestion(const std::unique_ptr<Question>& ptr, bool afficherBonne);
+    bool poserQuestion(const std::unique_ptr<Question>& question, bool afficherBonne);
     int get_NbQuestions()const ;
 
     int get_Essais() const { return d_essais; }
