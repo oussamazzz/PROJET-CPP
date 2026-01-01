@@ -1,6 +1,5 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
-#include "doctest.h"
-
+#include "../doctest/doctest.h"
 #include <sstream>
 #include <iostream>
 
@@ -21,8 +20,8 @@ TEST_CASE("Apprentissage::AfficheQuestionsAvecReponses")
         std::streambuf* oldCout = std::cout.rdbuf(fakeOutput.rdbuf());
 
         Questionnaire q;
-        q.ajouterQuestion(new QuestionText("2 + 2 = ?", "4"));
-        q.ajouterQuestion(new QuestionText("Capital de la France ?", "Paris"));
+        q.ajouterQuestion(std::unique_ptr<Question>(new QuestionTexte("2 + 2 = ?", "2 + 2 = ?", "4")));
+        q.ajouterQuestion(std::unique_ptr<Question>(new QuestionTexte("Capital de la France ?", "Capital de la France ?", "Paris")));
 
         app.AfficheQuestionsAvecReponses(q);
 
@@ -46,8 +45,8 @@ TEST_CASE("Apprentissage::AfficheQuestionsAvecReponses")
         std::streambuf* oldCout = std::cout.rdbuf(fakeOutput.rdbuf());
 
         Questionnaire q;
-        q.ajouterQuestion(new QuestionText("Q1", "R1"));
-        q.ajouterQuestion(new QuestionText("Q2", "R2"));
+        q.ajouterQuestion(std::unique_ptr<Question>(new QuestionTexte("Q1", "Q1", "R1")));
+        q.ajouterQuestion(std::unique_ptr<Question>(new QuestionTexte("Q2", "Q2", "R2")));
 
         app.AfficheQuestionsAvecReponses(q);
 
@@ -70,7 +69,7 @@ TEST_CASE("Apprentissage::AfficheQuestionsAvecReponses")
         std::streambuf* oldCout = std::cout.rdbuf(fakeOutput.rdbuf());
 
         Questionnaire q;
-        q.ajouterQuestion(new QuestionText("Question unique", "Bonne reponse"));
+        q.ajouterQuestion(std::unique_ptr<Question>(new QuestionTexte("Question unique", "Question unique", "Bonne reponse")));
 
         app.AfficheQuestionsAvecReponses(q);
 

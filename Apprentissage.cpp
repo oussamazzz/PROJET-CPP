@@ -20,7 +20,7 @@ void Apprentissage::AfficheQuestionsAvecReponses(const Questionnaire& q) const
         cout << "\nQuestion " << i + 1 << " / " << q.taille() << endl;
         cout << "------------------" << endl;
 
-        Question* question = q.getQuestion(i);
+        Question* question = q.getQuestions()[i].get();
         question->afficherquestion();
 
         cout << "Bonne reponse : "

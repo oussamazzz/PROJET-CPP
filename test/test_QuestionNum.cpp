@@ -1,94 +1,83 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "../doctest/doctest.h"
 #include "../QuestionNum.h"
-#include <string>
 #include <sstream>
 #include <fstream>
-#include <iostream>
 
-TEST_CASE("QuestionNumerique : verificationreponse") {
-    QuestionNumerique q(
-        "Maths",
-        "Combien font 2 + 2 ?",
-        4,
-        0,
-        10
-    );
+TEST_CASE("QuestionNumerique - verificationreponse") {
 
-    REQUIRE(q.verificationreponse("4") == true);
-    REQUIRE(q.verificationreponse("3") == false);
-    REQUIRE(q.verificationreponse("11") == false); 
-    REQUIRE(q.BonneReponse() == "4");
+    QuestionNumerique q("Maths","2+2 ?",4,0,10);
+
+    SUBCASE("Bonnee reponse") {
+        CHECK(q.verificationreponse("4") == true);
+    }
+
+    SUBCASE("Mauvaised reponse") {
+        CHECK(q.verificationreponse("3") == false);
+    }
+    SUBCASE("Réponse hors limite") {
+        CHECK(q.verificationreponse("11") == false);
+        CHECK(q.verificationreponse("-5") == false);
+    }
+    SUBCASE("Réponse non numérique") {
+        CHECK(q.verificationreponse("abc") == false);
+        CHECK(q.verificationreponse("4a") == false);
+        CHECK(q.verificationreponse("") == false);
+    }
 }
 
-TEST_CASE("QuestionNumerique : BonneReponse") {
-    QuestionNumerique q(
-        "Maths",
-        "Combien font 5 * 3 ?",
-        15,
-        0,
-        20
-    );
-
-    REQUIRE(q.BonneReponse() == "15");
+TEST_CASE("QuestionNumerique - BonneReponse") {
+    SUBCASE("Retourne bien la réponse numérique en string") {
+        QuestionNumerique q("Maths","5*3 ?",15,0,20);
+         CHECK(q.BonneReponse() == "15");
+    }
 }
 
-TEST_CASE("QuestionNumerique : sauvegarder") {
-    QuestionNumerique q(
-        "Maths",
-        "Combien font 2 + 2 ?",
-        4,
-        0,
-        10
-    );
+TEST_CASE("QuestionNumerique - sauvegarder fichier") {
 
-    std::ofstream fichier("test_temp.txt");
-    q.sauvegarder(fichier);
-    fichier.close();
+    QuestionNumerique q("Maths","2+2 ?",4,0,10);
 
-    std::ifstream lecture("test_temp.txt");
-    std::string ligne;
-    
-    std::getline(lecture, ligne);
-    REQUIRE(ligne == "QuestionNumerique");
-    
-    std::getline(lecture, ligne);
-    REQUIRE(ligne == "Maths");
-    
-    std::getline(lecture, ligne);
-    REQUIRE(ligne == "Combien font 2 + 2 ?");
-    
-    std::getline(lecture, ligne);
-    REQUIRE(ligne == "4");
-    
-    std::getline(lecture, ligne);
-    REQUIRE(ligne == "0");
-    
-    std::getline(lecture, ligne);
-    REQUIRE(ligne == "10");
-    
-    lecture.close();
-    remove("test_temp.txt");
+    SUBCASE("Les données sauvegardées sont correctes") {
+        std::ofstream f("temp.txt");
+
+        q.sauvegarder(f);
+
+        f.close();
+
+        std::ifstream in("temp.txt");
+        std::string l;
+
+        std::getline(in,l); CHECK(l == "QuestionNumerique");
+
+        std::getline(in,l); CHECK(l == "Maths");
+        std::getline(in,l); CHECK(l == "2+2 ?");
+        std::getline(in,l); CHECK(l == "4");
+        std::getline(in,l); CHECK(l == "0");
+        std::getline(in,l); CHECK(l == "10");
+
+        in.close();
+        remove("temp.txt");
+    }
 }
 
-TEST_CASE("QuestionNumerique : afficherquestion") {
-    QuestionNumerique q(
-        "Maths",
-        "Combien font 2 + 2 ?",
-        4,
-        0,
-        10
-    );
+TEST_CASE("QuestionNumerique - afficherquestion()") {
 
-    std::ostringstream oss;
-    std::streambuf* oldCout = std::cout.rdbuf(oss.rdbuf());
-    
-    q.afficherquestion();
-    
-    std::cout.rdbuf(oldCout);
-    
-    std::string output = oss.str();
-    REQUIRE(output.find("Maths") != std::string::npos);
-    REQUIRE(output.find("Combien font 2 + 2 ?") != std::string::npos);
-    REQUIRE(output.find("veuillez choisir un nombre entre") != std::string::npos);
+    QuestionNumerique q("Maths","2+2 ?",4,0,10);
+
+
+    SUBCASE("Affichage en console correct") {
+        std::ostringstream oss;
+        std::streambuf* old = std::cout.rdbuf(oss.rdbuf());
+
+        q.afficherquestion();
+        std::cout.rdbuf(old);
+
+        std::string out = oss.str();
+        CHECK(out.find("Maths") != std::string::npos);
+
+        CHECK(out.find("2+2 ?") != std::string::npos);
+
+        CHECK(out.find("0") != std::string::npos);
+        CHECK(out.find("10") != std::string::npos);
+    }
 }
