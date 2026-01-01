@@ -2,18 +2,23 @@
 #include <fstream>
 #include <string>
 
-
 QuestionNumerique::QuestionNumerique(const string &titre, const string &text, int reponse, int limiteminimale, int limitemaximale)
     : Question (titre, text), d_reponse(reponse), d_limiteminimale(limiteminimale), d_limitemaximale(limitemaximale) {}
 
 bool QuestionNumerique::verificationreponse(const string &reponse) const {
-    int reponsen = stoi(reponse);
-  if (reponsen >= d_limiteminimale && reponsen <= d_limitemaximale) {
-      return reponsen == d_reponse;
-  } else {
-      return false;
-  }
-    
+    try {
+        size_t pos = 0;
+        int reponsen = stoi(reponse, &pos);
+        if (pos != reponse.size()) {
+            return false;
+        }
+        if (reponsen < d_limiteminimale || reponsen > d_limitemaximale) {
+            return false;
+        }
+        return reponsen == d_reponse;
+    } catch (const std::exception &) {
+        return false;
+    }
 }
 
 string QuestionNumerique::BonneReponse() const {
@@ -29,5 +34,5 @@ void QuestionNumerique::sauvegarder(ofstream &fichiertxt) const {
 }
 void QuestionNumerique::afficherquestion() const {
    Question::afficherquestion();
-   cout <<"veuillez choisir un nombre entre " << d_limitemaximale << " et " <<  d_limiteminimale << "." << endl;
+    cout <<"veuillez choisir un nombre entre " << d_limiteminimale << " et " <<  d_limitemaximale << "." << endl;
 }
