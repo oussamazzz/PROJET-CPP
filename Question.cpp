@@ -3,7 +3,7 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
+
 
 Question::Question(const string &titre, const string &text):d_titre{titre},d_text{text}{}
 

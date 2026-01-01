@@ -15,7 +15,7 @@ void Apprentissage::AfficheQuestionsAvecReponses(const Questionnaire& q) const
 {
     char choix = 'o';
 
-    for (int i = 0; i < q.taille() && (choix == 'o' || choix == 'O'); ++i)
+    for (size_t i = 0; i < q.taille() && (choix == 'o' || choix == 'O'); ++i)
     {
         cout << "\nQuestion " << i + 1 << " / " << q.taille() << endl;
         cout << "------------------" << endl;

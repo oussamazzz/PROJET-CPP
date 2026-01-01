@@ -1,7 +1,7 @@
 #include "QuestionNum.h"
 #include <fstream>
 #include <string>
-using namespace std;
+
 
 QuestionNumerique::QuestionNumerique(const string &titre, const string &text, int reponse, int limiteminimale, int limitemaximale)
     : Question (titre, text), d_reponse(reponse), d_limiteminimale(limiteminimale), d_limitemaximale(limitemaximale) {}

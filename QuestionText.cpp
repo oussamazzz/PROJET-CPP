@@ -5,7 +5,7 @@
 #include "QuestionText.h"
 #include <fstream>
 #include <string>
-using namespace std;
+
 
 QuestionTexte::QuestionTexte(const string &titre, const string &text, const string &reponse)
     : Question{titre, text}, d_reponse{reponse} {}
