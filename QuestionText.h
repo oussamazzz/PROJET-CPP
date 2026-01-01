@@ -11,15 +11,15 @@
 
 class QuestionTexte : public Question {
 public :
-    QuestionTexte(const string &titre, const string &text, const string &reponse);
-    bool verificationreponse(const string &reponse) const override ;
-    string BonneReponse() const override ;
-    void sauvegarder(ofstream &fichiertxt) const override;
+    QuestionTexte(const std::string &titre, const std::string &text, const std::string &reponse);
+    bool verificationreponse(const std::string &reponse) const override ;
+    std::string BonneReponse() const override ;
+    void sauvegarder(std::ofstream &fichiertxt) const override;
     void afficherquestion() const override ;
 
 
 private :
-    string d_reponse;
+    std::string d_reponse;
 };
 
 

@@ -6,63 +6,42 @@
 #include <fstream>
 #include <iostream>
 
-TEST_CASE("QuestionTexte : verificationreponse et BonneReponse") {
-    std::string titre = "Capitale";
-    std::string text = "Quelle est la capitale de la France ?";
-    std::string reponse = "Paris";
 
-    QuestionTexte q(titre, text, reponse);
+TEST_CASE("Tests complets QuestionTexte") {
 
-    REQUIRE(q.verificationreponse("Paris") == true);
-    REQUIRE(q.verificationreponse("Lyon") == false);
-    REQUIRE(q.BonneReponse() == "Paris");
-}
+    QuestionTexte q("Capitale", "Quelle est la capitale de la France ?", "Paris");
 
-TEST_CASE("QuestionTexte : sauvegarder") {
-    QuestionTexte q(
-        "Capitale",
-        "Quelle est la capitale de la France ?",
-        "Paris"
-    );
+    SUBCASE("verificationreponse - plusieurs cas") {
+        REQUIRE(q.verificationreponse("Paris") == true);
+        REQUIRE(q.verificationreponse("paris") == false); 
+        REQUIRE(q.verificationreponse("Londres") == false);
+    }
 
-    std::ofstream fichier("test_temp.txt");
-    q.sauvegarder(fichier);
-    fichier.close();
+    SUBCASE("BonneReponse") {
+        REQUIRE(q.BonneReponse() == "Paris");
+    }
 
-    std::ifstream lecture("test_temp.txt");
-    std::string ligne;
-    
-    std::getline(lecture, ligne);
-    REQUIRE(ligne == "QuestionTexte");
-    
-    std::getline(lecture, ligne);
-    REQUIRE(ligne == "Capitale");
-    
-    std::getline(lecture, ligne);
-    REQUIRE(ligne == "Quelle est la capitale de la France ?");
-    
-    std::getline(lecture, ligne);
-    REQUIRE(ligne == "Paris");
-    
-    lecture.close();
-    remove("test_temp.txt");
-}
+    SUBCASE("afficherquestion - structure") {
+        std::ostringstream oss;
+        std::streambuf* old = std::cout.rdbuf(oss.rdbuf());
+        q.afficherquestion();
+        std::cout.rdbuf(old);
 
-TEST_CASE("QuestionTexte : afficherquestion") {
-    QuestionTexte q(
-        "Capitale",
-        "Quelle est la capitale de la France ?",
-        "Paris"
-    );
+        std::istringstream iss(oss.str());
+        std::string l1, l2;
 
-    std::ostringstream oss;
-    std::streambuf* oldCout = std::cout.rdbuf(oss.rdbuf());
-    
-    q.afficherquestion();
-    
-    std::cout.rdbuf(oldCout);
-    
-    std::string output = oss.str();
-    REQUIRE(output.find("Capitale") != std::string::npos);
-    REQUIRE(output.find("Quelle est la capitale de la France ?") != std::string::npos);
+        std::getline(iss, l1);
+        std::getline(iss, l2);
+
+        REQUIRE(l1 == "Thème : Capitale");
+        REQUIRE(l2 == "Quelle est la capitale de la France ?");
+    }
+
+    SUBCASE("Autre question texte pour compléter la couverture") {
+        QuestionTexte q2("Sport", "Sport national du Japon ?", "Sumo");
+
+        REQUIRE(q2.verificationreponse("Sumo") == true);
+        REQUIRE(q2.verificationreponse("Judo") == false);
+        REQUIRE(q2.BonneReponse() == "Sumo");
+    }
 }

@@ -2,15 +2,14 @@
 #include <fstream>
 #include <string>
 #include <stdexcept>
-using namespace std;
 
-QuestionNumerique::QuestionNumerique(const string &titre, const string &text, int reponse, int limiteminimale, int limitemaximale)
+QuestionNumerique::QuestionNumerique(const std::string &titre, const std::string &text, int reponse, int limiteminimale, int limitemaximale)
     : Question (titre, text), d_reponse(reponse), d_limiteminimale(limiteminimale), d_limitemaximale(limitemaximale) {}
 
-bool QuestionNumerique::verificationreponse(const string &reponse) const {
+bool QuestionNumerique::verificationreponse(const std::string &reponse) const {
     try {
         size_t pos = 0;
-        int reponsen = stoi(reponse, &pos);
+        int reponsen = std::stoi(reponse, &pos);
         if (pos != reponse.size()) {
             return false;
         }
@@ -23,18 +22,18 @@ bool QuestionNumerique::verificationreponse(const string &reponse) const {
     }
 }
 
-string QuestionNumerique::BonneReponse() const {
-    return to_string(d_reponse);
+std::string QuestionNumerique::BonneReponse() const {
+    return std::to_string(d_reponse);
 }
-void QuestionNumerique::sauvegarder(ofstream &fichiertxt) const {
-    fichiertxt << "QuestionNumerique" << endl;
-    fichiertxt << d_titre << endl;
-    fichiertxt << d_text << endl;
-    fichiertxt << d_reponse << endl;
-    fichiertxt << d_limiteminimale << endl;
-    fichiertxt << d_limitemaximale << endl;
+void QuestionNumerique::sauvegarder(std::ofstream &fichiertxt) const {
+    fichiertxt << "QuestionNumerique" << std::endl;
+    fichiertxt << d_titre << std::endl;
+    fichiertxt << d_text << std::endl;
+    fichiertxt << d_reponse << std::endl;
+    fichiertxt << d_limiteminimale << std::endl;
+    fichiertxt << d_limitemaximale << std::endl;
 }
 void QuestionNumerique::afficherquestion() const {
    Question::afficherquestion();
-    cout <<"veuillez choisir un nombre entre " << d_limiteminimale << " et " <<  d_limitemaximale << "." << endl;
+    std::cout <<"veuillez choisir un nombre entre " << d_limiteminimale << " et " <<  d_limitemaximale << "." << std::endl;
 }

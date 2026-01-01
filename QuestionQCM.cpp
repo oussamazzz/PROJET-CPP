@@ -1,27 +1,27 @@
 #include "QuestionQCM.h"
 
-QuestionQCM::QuestionQCM(const string &titre, const string &text, const vector<string> &choix,  int bonnereponse)
+QuestionQCM::QuestionQCM(const std::string &titre, const std::string &text, const std::vector<std::string> &choix,  int bonnereponse)
     : Question{titre, text}, d_choix{choix}, d_bonnereponse{bonnereponse} {}
 
-bool QuestionQCM::verificationreponse(const string &reponse) const {
-    return stoi(reponse) == d_bonnereponse;
+bool QuestionQCM::verificationreponse(const std::string &reponse) const {
+    return std::stoi(reponse) == d_bonnereponse;
 }
-string QuestionQCM::BonneReponse() const {
-    return to_string(d_bonnereponse);
+std::string QuestionQCM::BonneReponse() const {
+    return std::to_string(d_bonnereponse);
 }
-void QuestionQCM::sauvegarder(ofstream &fichiertxt) const {
-    fichiertxt << "QuestionQCM" << endl;
-    fichiertxt << d_titre << endl;
-    fichiertxt << d_text << endl;
-    fichiertxt << d_choix.size() << endl;
+void QuestionQCM::sauvegarder(std::ofstream &fichiertxt) const {
+    fichiertxt << "QuestionQCM" << std::endl;
+    fichiertxt << d_titre << std::endl;
+    fichiertxt << d_text << std::endl;
+    fichiertxt << d_choix.size() << std::endl;
     for (const auto &choix : d_choix) {
-        fichiertxt << choix << endl;
+        fichiertxt << choix << std::endl;
     }
-    fichiertxt << d_bonnereponse << endl;
+    fichiertxt << d_bonnereponse << std::endl;
 }
 void QuestionQCM::afficherquestion() const {
     Question::afficherquestion();
     for (size_t i = 0; i < d_choix.size(); ++i) {
-        cout << i + 1 << ". " << d_choix[i] << endl;
+        std::cout << i + 1 << ". " << d_choix[i] << std::endl;
     }
 }

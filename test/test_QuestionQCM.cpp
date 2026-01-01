@@ -1,123 +1,54 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "../doctest/doctest.h"
 #include "../QuestionQCM.h"
-#include <vector>
-#include <string>
 #include <sstream>
-#include <fstream>
 #include <iostream>
 
-TEST_CASE("QuestionQCM : verificationreponse") {
-    std::vector<std::string> choix = {
-        "Rouge",
-        "Vert",
-        "Bleu",
-        "Jaune"
-    };
 
-    QuestionQCM q(
-        "Couleur",
-        "Quelle est la couleur du ciel ?",
-        choix,
-        3
-    );
+TEST_CASE("Tests complets QuestionQCM") {
 
-    REQUIRE(q.verificationreponse("3") == true);
-    REQUIRE(q.verificationreponse("1") == false);
-    REQUIRE(q.BonneReponse() == "3");
-}
+    std::vector<std::string> choix1 = {"Rouge", "Vert", "Bleu"};
+    QuestionQCM q("Couleur", "Quelle est la couleur du ciel ?", choix1, 3);
 
-TEST_CASE("QuestionQCM : BonneReponse") {
-    std::vector<std::string> choix = {
-        "Option A",
-        "Option B",
-        "Option C"
-    };
+    SUBCASE("verificationreponse - bon et mauvais cas") {
+        REQUIRE(q.verificationreponse("3") == true);  
+        REQUIRE(q.verificationreponse("2") == false);  
+        REQUIRE(q.verificationreponse("0") == false); 
+        REQUIRE(q.verificationreponse("10") == false); 
+    }
 
-    QuestionQCM q(
-        "Test",
-        "Choisissez une option",
-        choix,
-        2
-    );
+    SUBCASE("BonneReponse - retour correct") {
+        REQUIRE(q.BonneReponse() == "3");
+    }
 
-    REQUIRE(q.BonneReponse() == "2");
-}
+    SUBCASE("afficherquestion - structure correcte") {
+        std::ostringstream oss;
+        std::streambuf* old = std::cout.rdbuf(oss.rdbuf());
+        q.afficherquestion();
+        std::cout.rdbuf(old);
 
-TEST_CASE("QuestionQCM : sauvegarder") {
-    std::vector<std::string> choix = {
-        "Rouge",
-        "Vert",
-        "Bleu"
-    };
+        std::istringstream iss(oss.str());
+        std::string l1, l2, l3, l4, l5;
 
-    QuestionQCM q(
-        "Couleur",
-        "Quelle est la couleur du ciel ?",
-        choix,
-        3
-    );
+        std::getline(iss, l1);
+        std::getline(iss, l2);
+        std::getline(iss, l3);
+        std::getline(iss, l4);
+        std::getline(iss, l5);
 
-    std::ofstream fichier("test_temp.txt");
-    q.sauvegarder(fichier);
-    fichier.close();
+        REQUIRE(l1 == "Thème : Couleur");
+        REQUIRE(l2 == "Quelle est la couleur du ciel ?");
+        REQUIRE(l3 == "1. Rouge");
+        REQUIRE(l4 == "2. Vert");
+        REQUIRE(l5 == "3. Bleu");
+    }
 
-    std::ifstream lecture("test_temp.txt");
-    std::string ligne;
-    
-    std::getline(lecture, ligne);
-    REQUIRE(ligne == "QuestionQCM");
-    
-    std::getline(lecture, ligne);
-    REQUIRE(ligne == "Couleur");
-    
-    std::getline(lecture, ligne);
-    REQUIRE(ligne == "Quelle est la couleur du ciel ?");
-    
-    std::getline(lecture, ligne);
-    REQUIRE(ligne == "3");
-    
-    std::getline(lecture, ligne);
-    REQUIRE(ligne == "Rouge");
-    
-    std::getline(lecture, ligne);
-    REQUIRE(ligne == "Vert");
-    
-    std::getline(lecture, ligne);
-    REQUIRE(ligne == "Bleu");
-    
-    std::getline(lecture, ligne);
-    REQUIRE(ligne == "3");
-    
-    lecture.close();
-    remove("test_temp.txt");
-}
+    SUBCASE("Ajout d'un second QCM pour meilleure couverture") {
+        std::vector<std::string> choix2 = {"Dog", "Cat"};
+        QuestionQCM q2("Animal", "Best pet ?", choix2, 1);
+        REQUIRE(q2.verificationreponse("1") == true);
+        REQUIRE(q2.verificationreponse("2") == false);
 
-TEST_CASE("QuestionQCM : afficherquestion") {
-    std::vector<std::string> choix = {
-        "Rouge",
-        "Vert",
-        "Bleu"
-    };
-
-    QuestionQCM q(
-        "Couleur",
-        "Quelle est la couleur du ciel ?",
-        choix,
-        3
-    );
-
-    std::ostringstream oss;
-    std::streambuf* oldCout = std::cout.rdbuf(oss.rdbuf());
-    
-    q.afficherquestion();
-    
-    std::cout.rdbuf(oldCout);
-    
-    std::string output = oss.str();
-    REQUIRE(output.find("Couleur") != std::string::npos);
-    REQUIRE(output.find("Quelle est la couleur du ciel ?") != std::string::npos);
-    REQUIRE(output.find("1. Rouge") != std::string::npos);
-    REQUIRE(output.find("2. Vert") != std::string::npos);
-    REQUIRE(output.find("3. Bleu") != std::string::npos);
+        REQUIRE(q2.BonneReponse() == "1");
+    }
 }

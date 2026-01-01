@@ -9,22 +9,22 @@
 #include <fstream>
 #include <vector>
 
-using namespace std;
+
 
 class QuestionQCM : public Question {
 
     private :
-        std::vector<string> d_choix;
+        std::vector<std::string> d_choix;
         int d_bonnereponse;
     public :
 
-    QuestionQCM( const string &titre, const string &text, const vector<string> &choix,  int bonnereponse);
+    QuestionQCM( const std::string &titre, const std::string &text, const std::vector<std::string> &choix,  int bonnereponse);
 
-    bool verificationreponse(const string &reponse) const override ;
+    bool verificationreponse(const std::string &reponse) const override ;
 
-    string BonneReponse() const override ;
+    std::string BonneReponse() const override ;
     
-    void sauvegarder(ofstream &fichiertxt) const override;
+    void sauvegarder(std::ofstream &fichiertxt) const override;
     void afficherquestion() const override ;
 
 };
