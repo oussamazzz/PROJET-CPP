@@ -33,71 +33,67 @@ void Questionnaire::sauvegarder(const std::string& nomFichier) const {
     fichier.close();
 }
 
-void Questionnaire::lectureDepuisFichier(const std::string& nomFichier) {
+bool Questionnaire::lectureDepuisFichier(const std::string& nomFichier) {
     d_questions.clear();
 
-    std::ifstream fichier(nomFichier);
+    ifstream fichier(nomFichier);
     if (!fichier) {
-        std::cout << "Erreur ouverture fichier : " << nomFichier << std::endl;
-        return;
+        cout << "Erreur ouverture fichier : " << nomFichier << endl;
+        return false;
     }
 
-    // recuperer le Titre du questionnaire
-    if (!std::getline(fichier, d_titre)) {
-        std::cout << "Erreur : titre manquant\n";
-        return;
+    if (!getline(fichier, d_titre)) {
+        cout << "Erreur : titre manquant\n";
+        return false;
     }
 
-    // Nb question
     int nbQuestions;
-    fichier >> nbQuestions;
+    if (!(fichier >> nbQuestions)) {
+        cout << "Erreur : nombre de questions invalide\n";
+        return false;
+    }
     fichier.ignore();
 
     for (int i = 0; i < nbQuestions; ++i) {
-        std::string type;
-        std::getline(fichier, type);
+        string type;
+        getline(fichier, type);
 
-        // QuestionTexte
-        if (type == "QuestionTexte" || type == "QuestionText") {
-            std::string titre, texte, reponse;
-            std::getline(fichier, titre);
-            std::getline(fichier, texte);
-            std::getline(fichier, reponse);
+        if (type == "QuestionText") {
+            string titre, texte, reponse;
+            getline(fichier, titre);
+            getline(fichier, texte);
+            getline(fichier, reponse);
 
             d_questions.push_back(
-                std::make_unique<QuestionTexte>(titre, texte, reponse)
+                make_unique<QuestionText>(titre, texte, reponse)
             );
         }
-
-        //  QuestionNumerique
-        else if (type == "QuestionNumerique" || type == "QuestionNum") {
-            std::string titre, texte;
+        else if (type == "QuestionNum") {
+            string titre, texte;
             int reponse, minVal, maxVal;
 
-            std::getline(fichier, titre);
-            std::getline(fichier, texte);
+            getline(fichier, titre);
+            getline(fichier, texte);
             fichier >> reponse >> minVal >> maxVal;
             fichier.ignore();
 
             d_questions.push_back(
-                std::make_unique<QuestionNumerique>(titre, texte, reponse, minVal, maxVal)
+                make_unique<QuestionNum>(titre, texte, reponse, minVal, maxVal)
             );
         }
-
-        // QuestionQCM
         else if (type == "QuestionQCM") {
-            std::string titre, texte;
+            string titre, texte;
             int nbChoix, bonneRep;
 
-            std::getline(fichier, titre);
-            std::getline(fichier, texte);
+            getline(fichier, titre);
+            getline(fichier, texte);
             fichier >> nbChoix;
             fichier.ignore();
 
-            std::vector<std::string> choix;
+            vector<string> choix;
             for (int j = 0; j < nbChoix; ++j) {
-                std::string c;
-                std::getline(fichier, c);
+                string c;
+                getline(fichier, c);
                 choix.push_back(c);
             }
 
@@ -105,15 +101,14 @@ void Questionnaire::lectureDepuisFichier(const std::string& nomFichier) {
             fichier.ignore();
 
             d_questions.push_back(
-                std::make_unique<QuestionQCM>(titre, texte, choix, bonneRep)
+                make_unique<QuestionQCM>(titre, texte, choix, bonneRep)
             );
         }
-
         else {
-            std::cout << "Type de question inconnu : " << type << std::endl;
-            return;
+            cout << "Type de question inconnu : " << type << endl;
+            return false;
         }
     }
+
+    return true;
 }
-
-
