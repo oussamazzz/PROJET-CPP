@@ -7,7 +7,7 @@
 #include "Questionnaire.h"
 #include "QuestionText.h"
 
-TEST_CASE("Apprentissage::AfficheQuestionsAvecReponses")
+TEST_CASE("AfficheQuestionsAvecReponses")
 {
     Apprentissage app;
 
@@ -69,7 +69,7 @@ TEST_CASE("Apprentissage::AfficheQuestionsAvecReponses")
         std::streambuf* oldCout = std::cout.rdbuf(fakeOutput.rdbuf());
 
         Questionnaire q;
-        q.ajouterQuestion(std::unique_ptr<Question>(new QuestionTexte("Question unique", "Question unique", "Bonne reponse")));
+        q.ajouterQuestion(new QuestionText("Question unique", "Bonne reponse"));
 
         app.AfficheQuestionsAvecReponses(q);
 

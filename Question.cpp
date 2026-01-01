@@ -3,7 +3,6 @@
 #include <iostream>
 #include <string>
 
-
 Question::Question(const std::string &titre, const std::string &text):d_titre{titre},d_text{text}{}
 
 std::string Question::get_titre() const {

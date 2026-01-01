@@ -6,7 +6,6 @@
 #include <iostream>
 
 
-
 class Question {
 
     public:

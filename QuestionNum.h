@@ -6,7 +6,7 @@
 #include "Question.h"
 #include <string>
 #include <fstream>
-using namespace std;
+
 
 class QuestionNumerique: public Question {
 public :
