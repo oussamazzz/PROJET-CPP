@@ -1,0 +1,18 @@
+Questionnaire de test
+3
+QuestionText
+Capitales
+Quelle est la capitale de la France ?
+Paris
+QuestionNum
+Maths
+Combien font 7 * 6 ?
+42 0 100
+QuestionQCM
+Informatique
+Quel langage est orienté objet ?
+3
+C
+C++
+Python
+2
