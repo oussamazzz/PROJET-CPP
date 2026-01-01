@@ -158,3 +158,163 @@
 
 1766521810 c:\users\ramzi\desktop\projet_qualitr_prog\projet-cpp\goto_xy_windows.h
 
+1766416728 source:c:\users\deel\desktop\projetqualite\projet-cpp\apprentissage.cpp
+	<string>
+	<fstream>
+	<iostream>
+	<memory>
+	"Question.h"
+	"Questionnaire.h"
+	"Evaluation.h"
+	"Apprentissage.h"
+
+1765979147 c:\users\deel\desktop\projetqualite\projet-cpp\question.h
+	<string>
+	<fstream>
+	<iostream>
+
+1767277769 c:\users\deel\desktop\projetqualite\projet-cpp\questionnaire.h
+	<vector>
+	<string>
+	<fstream>
+	<iostream>
+	<memory>
+	"Question.h"
+
+1766015186 c:\users\deel\desktop\projetqualite\projet-cpp\evaluation.h
+	<string>
+	<fstream>
+	<iostream>
+	<memory>
+	"Question.h"
+	"Questionnaire.h"
+
+1766416728 c:\users\deel\desktop\projetqualite\projet-cpp\apprentissage.h
+	<string>
+	<fstream>
+	<iostream>
+	<memory>
+	"Question.h"
+	"Questionnaire.h"
+
+1766010361 source:c:\users\deel\desktop\projetqualite\projet-cpp\evaluation.cpp
+	<string>
+	<fstream>
+	<iostream>
+	<memory>
+	"Question.h"
+	"Questionnaire.h"
+	"Evaluation.h"
+
+1767284255 source:c:\users\deel\desktop\projetqualite\projet-cpp\evaluationadap.cpp
+	"EvaluationAdap.h"
+	"Questionnaire.h"
+	<iostream>
+	<vector>
+	<cstdlib>
+	<ctime>
+
+1766010277 c:\users\deel\desktop\projetqualite\projet-cpp\evaluationadap.h
+	<string>
+	<fstream>
+	<iostream>
+	<memory>
+	"Question.h"
+	"Questionnaire.h"
+	"Evaluation.h"
+
+1766012175 source:c:\users\deel\desktop\projetqualite\projet-cpp\evaluationsecchance.cpp
+	<string>
+	<fstream>
+	<iostream>
+	<memory>
+	"Question.h"
+	"Questionnaire.h"
+	"Evaluation.h"
+	"EvaluationSecChance.h"
+
+1766010240 c:\users\deel\desktop\projetqualite\projet-cpp\evaluationsecchance.h
+	<string>
+	<fstream>
+	<iostream>
+	<memory>
+	"Question.h"
+	"Questionnaire.h"
+	"Evaluation.h"
+
+1766011217 source:c:\users\deel\desktop\projetqualite\projet-cpp\evaluationtest.cpp
+	<string>
+	<fstream>
+	<iostream>
+	<memory>
+	"Question.h"
+	"Questionnaire.h"
+	"Evaluation.h"
+	"EvaluationTest.h"
+
+1766010606 c:\users\deel\desktop\projetqualite\projet-cpp\evaluationtest.h
+	<string>
+	<fstream>
+	<iostream>
+	<memory>
+	"Question.h"
+	"Questionnaire.h"
+	"Evaluation.h"
+
+1767277769 source:c:\users\deel\desktop\projetqualite\projet-cpp\goto_xy_windows.cpp
+	<windows.h>
+	"goto_xy_windows.h"
+
+1767277769 c:\users\deel\desktop\projetqualite\projet-cpp\goto_xy_windows.h
+
+1765535773 source:c:\users\deel\desktop\projetqualite\projet-cpp\question.cpp
+	"Question.h"
+	<iostream>
+	<string>
+
+1767277769 source:c:\users\deel\desktop\projetqualite\projet-cpp\questionnaire.cpp
+	"Questionnaire.h"
+	"QuestionText.h"
+	"QuestionNum.h"
+	"QuestionQCM.h"
+	<iostream>
+
+1767277769 c:\users\deel\desktop\projetqualite\projet-cpp\questiontext.h
+	"Question.h"
+	<string>
+	<fstream>
+
+1767277769 c:\users\deel\desktop\projetqualite\projet-cpp\questionnum.h
+	"Question.h"
+	<string>
+	<fstream>
+
+1765979147 c:\users\deel\desktop\projetqualite\projet-cpp\questionqcm.h
+	"Question.h"
+	<string>
+	<fstream>
+	<vector>
+
+1767277769 source:c:\users\deel\desktop\projetqualite\projet-cpp\questionnum.cpp
+	"QuestionNum.h"
+	<fstream>
+	<string>
+
+1765979147 source:c:\users\deel\desktop\projetqualite\projet-cpp\questionqcm.cpp
+	"QuestionQCM.h"
+
+1767277769 source:c:\users\deel\desktop\projetqualite\projet-cpp\questiontext.cpp
+	"QuestionText.h"
+	<fstream>
+	<string>
+
+1767286063 source:c:\users\deel\desktop\projetqualite\projet-cpp\main.cpp
+	<iostream>
+	<string>
+	"Questionnaire.h"
+	"Apprentissage.h"
+	"EvaluationTest.h"
+	"EvaluationSecChance.h"
+	"EvaluationAdap.h"
+	"goto_xy_windows.h"
+
