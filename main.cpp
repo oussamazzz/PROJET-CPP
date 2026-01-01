@@ -5,7 +5,6 @@
 #include "EvaluationTest.h"
 #include "EvaluationSecChance.h"
 #include "EvaluationAdap.h"
-#include "goto_xy_windows.h"
 
 int main() {
     while (true) {
@@ -16,7 +15,6 @@ int main() {
 
         bool chargeOk = false;
         while (!chargeOk) {
-            goto_xy(10, 5);
             std::cout << "Entrez le nom du fichier questionnaire : ";
             std::getline(std::cin, nomFichier);
 
@@ -34,7 +32,7 @@ int main() {
                 std::cin.ignore();
                 if (r == 'o' || r == 'O') {
                     system("cls");
-                    continue;  
+                    continue;
                 } else {
                     std::cout << "Au revoir.\n";
                     return 0;
@@ -46,27 +44,14 @@ int main() {
         while (continuerAvecCeFichier) {
             system("cls");
 
-            int x = 25;
-            int y = 3;
+            std::cout << "===============================\n";
+            std::cout << "      Gestion Questionnaire\n";
+            std::cout << "===============================\n\n";
 
-            goto_xy(x, y++);
-            std::cout << "===============================";
-            goto_xy(x, y++);
-            std::cout << "      Gestion Questionnaire";
-            goto_xy(x, y++);
-            std::cout << "===============================";
+            std::cout << "1. Apprentissage\n";
+            std::cout << "2. Evaluation\n";
+            std::cout << "3. Quitter le programme\n\n";
 
-            y++;
-
-            goto_xy(x, y++);
-            std::cout << "1. Apprentissage";
-            goto_xy(x, y++);
-            std::cout << "2. Evaluation";
-            goto_xy(x, y++);
-            std::cout << "3. Quitter le programme";
-
-            y += 2;
-            goto_xy(x, y);
             std::cout << "Choix : ";
 
             int choixPrincipal;
@@ -85,22 +70,12 @@ int main() {
                     int choixEval = 0;
                     do {
                         system("cls");
-                        int xe = 25;
-                        int ye = 5;
 
-                        goto_xy(xe, ye++);
-                        std::cout << "====== Choix de l'evaluation ======";
-                        goto_xy(xe, ye++);
-                        std::cout << "1. Evaluation (test)";
-                        goto_xy(xe, ye++);
-                        std::cout << "2. Evaluation (seconde chance)";
-                        goto_xy(xe, ye++);
-                        std::cout << "3. Evaluation (adaptative)";
-                        goto_xy(xe, ye++);
-                        std::cout << "4. Retour au menu principal";
-
-                        ye += 2;
-                        goto_xy(xe, ye);
+                        std::cout << "====== Choix de l'evaluation ======\n";
+                        std::cout << "1. Evaluation (test)\n";
+                        std::cout << "2. Evaluation (seconde chance)\n";
+                        std::cout << "3. Evaluation (adaptative)\n";
+                        std::cout << "4. Retour au menu principal\n\n";
                         std::cout << "Choix : ";
 
                         std::cin >> choixEval;
@@ -144,6 +119,7 @@ int main() {
                     std::cout << "Choix invalide.\n";
                     break;
             }
+
             std::cout << "\nQue voulez-vous faire maintenant ?\n";
             std::cout << "1. Revenir au menu (meme questionnaire)\n";
             std::cout << "2. Charger un autre questionnaire\n";
@@ -155,7 +131,7 @@ int main() {
             std::cin.ignore();
 
             if (suite == 1) {
-                continue; 
+                continue;
             } else if (suite == 2) {
                 continuerAvecCeFichier = false;
             } else {

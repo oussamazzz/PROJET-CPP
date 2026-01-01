@@ -10,7 +10,7 @@
 
 class EvaluationAdaptative : public Evaluation {
 public:
-    explicit EvaluationAdaptative(Questionnaire& q);
+    EvaluationAdaptative(Questionnaire& q);
 
     void lancer() override;
 };

@@ -181,7 +181,7 @@
 	<memory>
 	"Question.h"
 
-1766015186 c:\users\deel\desktop\projetqualite\projet-cpp\evaluation.h
+1767301766 c:\users\deel\desktop\projetqualite\projet-cpp\evaluation.h
 	<string>
 	<fstream>
 	<iostream>
@@ -197,7 +197,7 @@
 	"Question.h"
 	"Questionnaire.h"
 
-1766010361 source:c:\users\deel\desktop\projetqualite\projet-cpp\evaluation.cpp
+1767301726 source:c:\users\deel\desktop\projetqualite\projet-cpp\evaluation.cpp
 	<string>
 	<fstream>
 	<iostream>
@@ -206,7 +206,7 @@
 	"Questionnaire.h"
 	"Evaluation.h"
 
-1767284255 source:c:\users\deel\desktop\projetqualite\projet-cpp\evaluationadap.cpp
+1767302389 source:c:\users\deel\desktop\projetqualite\projet-cpp\evaluationadap.cpp
 	"EvaluationAdap.h"
 	"Questionnaire.h"
 	<iostream>
@@ -214,7 +214,7 @@
 	<cstdlib>
 	<ctime>
 
-1766010277 c:\users\deel\desktop\projetqualite\projet-cpp\evaluationadap.h
+1767302440 c:\users\deel\desktop\projetqualite\projet-cpp\evaluationadap.h
 	<string>
 	<fstream>
 	<iostream>
@@ -223,7 +223,7 @@
 	"Questionnaire.h"
 	"Evaluation.h"
 
-1766012175 source:c:\users\deel\desktop\projetqualite\projet-cpp\evaluationsecchance.cpp
+1767302489 source:c:\users\deel\desktop\projetqualite\projet-cpp\evaluationsecchance.cpp
 	<string>
 	<fstream>
 	<iostream>
@@ -233,7 +233,7 @@
 	"Evaluation.h"
 	"EvaluationSecChance.h"
 
-1766010240 c:\users\deel\desktop\projetqualite\projet-cpp\evaluationsecchance.h
+1767302515 c:\users\deel\desktop\projetqualite\projet-cpp\evaluationsecchance.h
 	<string>
 	<fstream>
 	<iostream>
@@ -242,7 +242,7 @@
 	"Questionnaire.h"
 	"Evaluation.h"
 
-1766011217 source:c:\users\deel\desktop\projetqualite\projet-cpp\evaluationtest.cpp
+1767302540 source:c:\users\deel\desktop\projetqualite\projet-cpp\evaluationtest.cpp
 	<string>
 	<fstream>
 	<iostream>
@@ -252,7 +252,7 @@
 	"Evaluation.h"
 	"EvaluationTest.h"
 
-1766010606 c:\users\deel\desktop\projetqualite\projet-cpp\evaluationtest.h
+1767302554 c:\users\deel\desktop\projetqualite\projet-cpp\evaluationtest.h
 	<string>
 	<fstream>
 	<iostream>
@@ -311,7 +311,7 @@
 	<fstream>
 	<string>
 
-1767299835 source:c:\users\deel\desktop\projetqualite\projet-cpp\main.cpp
+1767301520 source:c:\users\deel\desktop\projetqualite\projet-cpp\main.cpp
 	<iostream>
 	<string>
 	"Questionnaire.h"
@@ -319,5 +319,4 @@
 	"EvaluationTest.h"
 	"EvaluationSecChance.h"
 	"EvaluationAdap.h"
-	"goto_xy_windows.h"
 
