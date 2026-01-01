@@ -9,17 +9,19 @@ QuestionNumerique::QuestionNumerique(const std::string &titre, const std::string
 bool QuestionNumerique::verificationreponse(const std::string &reponse) const {
     try {
         size_t pos = 0;
-        int reponsen = std::stoi(reponse, &pos);
+        
+    int reponsen = std::stoi(reponse, &pos);
+
         if (pos != reponse.size()) {
             return false;
         }
         if (reponsen < d_limiteminimale || reponsen > d_limitemaximale) {
             return false;
         }
+
         return reponsen == d_reponse;
-    } catch (const std::exception &) {
-        return false;
-    }
+
+    } catch (const std::exception &) {  return false; }
 }
 
 std::string QuestionNumerique::BonneReponse() const {
@@ -35,5 +37,6 @@ void QuestionNumerique::sauvegarder(std::ofstream &fichiertxt) const {
 }
 void QuestionNumerique::afficherquestion() const {
    Question::afficherquestion();
+
     std::cout <<"veuillez choisir un nombre entre " << d_limiteminimale << " et " <<  d_limitemaximale << "." << std::endl;
 }

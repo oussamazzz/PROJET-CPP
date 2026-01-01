@@ -12,13 +12,13 @@
 
 
 class QuestionQCM : public Question {
-
-    private :
+ private : 
         std::vector<std::string> d_choix;
-        int d_bonnereponse;
-    public :
 
-    QuestionQCM( const std::string &titre, const std::string &text, const std::vector<std::string> &choix,  int bonnereponse);
+        int d_bonnereponse;
+ public :
+
+ QuestionQCM( const std::string &titre, const std::string &text, const std::vector<std::string> &choix,  int bonnereponse);
 
     bool verificationreponse(const std::string &reponse) const override ;
 
