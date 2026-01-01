@@ -1,22 +1,32 @@
 .vscode/
 .idea/
 
-.scannerwork/
-
 *.exe
 *.o
 *.obj
 *.pdb
 *.log
-*.gcda
-*.gcno
-*.info
 
 *.tmp
 *.swp
-*.html
 
-*.cbp
-*.depend 
+*.gcda
+*.gcno
+coverage.info
+coverage/
+out/
+
+
+test/output/
+
+
 .codacy-coverage/
+.scannerwork/
 
+
+goto_xy_windows.cpp
+goto_xy_windows.h
+
+
+*.depend
+*.cbp
