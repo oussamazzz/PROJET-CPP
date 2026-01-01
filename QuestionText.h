@@ -8,8 +8,6 @@
 #include <fstream>
 
 
-using namespace std;
-
 
 class QuestionTexte : public Question {
 public :

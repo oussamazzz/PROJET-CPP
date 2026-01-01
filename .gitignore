@@ -8,6 +8,9 @@
 *.obj
 *.pdb
 *.log
+*.gcda
+*.gcno
+*.info
 
 *.tmp
 *.swp
