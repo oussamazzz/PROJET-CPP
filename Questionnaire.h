@@ -21,7 +21,7 @@ public:
     int taille() const;
     const std::vector<std::unique_ptr<Question>> & getQuestions() const;
     void sauvegarder(const std::string& nomFichier) const;
-    void lectureDepuisFichier(const std::string& nomFichier);
+    bool lectureDepuisFichier(const std::string& nomFichier) ;
 
 
 

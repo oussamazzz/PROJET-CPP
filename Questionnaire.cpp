@@ -33,31 +33,31 @@ void Questionnaire::sauvegarder(const std::string& nomFichier) const {
     fichier.close();
 }
 
-void Questionnaire::lectureDepuisFichier(const std::string& nomFichier) {
+bool Questionnaire::lectureDepuisFichier(const std::string& nomFichier) {
     d_questions.clear();
 
     ifstream fichier(nomFichier);
     if (!fichier) {
         cout << "Erreur ouverture fichier : " << nomFichier << endl;
-        return;
+        return false;
     }
 
-    // recuperer le Titre du questionnaire
     if (!getline(fichier, d_titre)) {
         cout << "Erreur : titre manquant\n";
-        return;
+        return false;
     }
 
-    // Nb question
     int nbQuestions;
-    fichier >> nbQuestions;
+    if (!(fichier >> nbQuestions)) {
+        cout << "Erreur : nombre de questions invalide\n";
+        return false;
+    }
     fichier.ignore();
 
     for (int i = 0; i < nbQuestions; ++i) {
         string type;
         getline(fichier, type);
 
-        // QuestionText
         if (type == "QuestionText") {
             string titre, texte, reponse;
             getline(fichier, titre);
@@ -68,8 +68,6 @@ void Questionnaire::lectureDepuisFichier(const std::string& nomFichier) {
                 make_unique<QuestionText>(titre, texte, reponse)
             );
         }
-
-        //  QuestionNum
         else if (type == "QuestionNum") {
             string titre, texte;
             int reponse, minVal, maxVal;
@@ -83,8 +81,6 @@ void Questionnaire::lectureDepuisFichier(const std::string& nomFichier) {
                 make_unique<QuestionNum>(titre, texte, reponse, minVal, maxVal)
             );
         }
-
-        // QuestionQCM
         else if (type == "QuestionQCM") {
             string titre, texte;
             int nbChoix, bonneRep;
@@ -108,12 +104,11 @@ void Questionnaire::lectureDepuisFichier(const std::string& nomFichier) {
                 make_unique<QuestionQCM>(titre, texte, choix, bonneRep)
             );
         }
-
         else {
             cout << "Type de question inconnu : " << type << endl;
-            return;
+            return false;
         }
     }
+
+    return true;
 }
-
-
