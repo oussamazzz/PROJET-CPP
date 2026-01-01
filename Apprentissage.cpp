@@ -20,7 +20,7 @@ void Apprentissage::AfficheQuestionsAvecReponses(const Questionnaire& q) const
         cout << "\nQuestion " << i + 1 << " / " << q.taille() << endl;
         cout << "------------------" << endl;
 
-        Question* question = q.getQuestions()[i].get();
+        Question* question = q.getQuestion(i);
         question->afficherquestion();
 
         cout << "Bonne reponse : "
@@ -32,4 +32,4 @@ void Apprentissage::AfficheQuestionsAvecReponses(const Questionnaire& q) const
 
     cout << "Fin de la phase d'apprentissage." << endl;
 }
-
+    
