@@ -15,21 +15,21 @@ void Apprentissage::AfficheQuestionsAvecReponses(const Questionnaire& q) const
 {
     char choix = 'o';
 
-    for (size_t i = 0; i < q.taille() && (choix == 'o' || choix == 'O'); ++i)
+    for (int i = 0; i < q.taille() && (choix == 'o' || choix == 'O'); ++i)
     {
-        cout << "\nQuestion " << i + 1 << " / " << q.taille() << endl;
-        cout << "------------------" << endl;
+        std::cout << "\nQuestion " << i + 1 << " / " << q.taille() << std::endl;
+        std::cout << "------------------" << std::endl;
 
-        Question* question = q.getQuestion(i);
+        Question* question = q.getQuestions()[i].get();
         question->afficherquestion();
 
-        cout << "Bonne reponse : "
-             << question->BonneReponse() << endl;
+        std::cout << "Bonne reponse : "
+             << question->BonneReponse() << std::endl;
 
-        cout << "\nAfficher la question suivante ? (o = oui / autre = non) : ";
-        cin >> choix;
+        std::cout << "\nAfficher la question suivante ? (o = oui / autre = non) : ";
+        std::cin >> choix;
     }
 
-    cout << "Fin de la phase d'apprentissage." << endl;
+    std::cout << "Fin de la phase d'apprentissage." << std::endl;
 }
     
